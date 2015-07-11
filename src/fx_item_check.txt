@@ -1,0 +1,45 @@
+DROP FUNCTION IF EXISTS fx_format_item;
+DELIMITER $$
+CREATE FUNCTION fx_format_item(p_is_present INT, p_upc varchar(30), p_item_no varchar(30), p_model varchar(70))
+    RETURNS VARCHAR(500) DETERMINISTIC
+BEGIN     
+    RETURN CONCAT(p_is_present, '*', p_upc, '*', p_item_no, '*', p_model);
+END;
+$$
+DELIMITER ;
+
+DROP FUNCTION IF EXISTS fx_check_item;
+DELIMITER $$
+CREATE FUNCTION fx_check_item(p_upc varchar(30))
+    RETURNS VARCHAR(100) READS SQL DATA
+BEGIN     
+    DECLARE v_upc   VARCHAR(30);
+    DECLARE v_item_no VARCHAR(30);
+    DECLARE v_model VARCHAR(70);
+    DECLARE v_ordered_qty INT default 0;
+    DECLARE v_is_present INT DEFAULT FALSE;
+    
+    SELECT ordered_qty INTO v_ordered_qty FROM inventory WHERE upc = p_upc;
+    
+    IF v_ordered_qty = 0 THEN
+        -- insert the new item
+        SET v_is_present = false;
+    ELSE
+        -- update item
+        SET v_is_present = true;
+    END IF;        
+        SELECT
+            upc,
+            item_no,
+            model
+        INTO        
+            v_upc,
+            v_item_no,
+            v_model
+        FROM
+            ITEM
+        WHERE upc = p_upc;
+RETURN fx_format_item(v_is_present, v_upc, v_item_no, v_model);
+END;
+$$
+DELIMITER ;
