@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
 table {
-    width: 100%;
     border-collapse: collapse;
 }
 
@@ -15,6 +15,7 @@ table, td, th {
 th {text-align: left;}
 </style>
 </head>
+
 <body>
 
 <?php
@@ -30,27 +31,51 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql="SELECT * FROM store";
+// Convert the query result into utf8
+$conn->query("SET character_set_results=utf8");
+/*
+mb_language('uni'); 
+mb_internal_encoding('UTF-8');
+$conn->query("set names 'utf8'");
+*/
+
+$sql="
+SELECT 
+    item_no, 
+    model, 
+    wholesale, 
+    ordered_qty,  
+    wholesale * ordered_qty as total 
+FROM 
+    ITEM, 
+    INVENTORY 
+WHERE ITEM.upc = INVENTORY.upc";
+
 $result = $conn->query($sql);
 
 echo "
 <table>
     <tr>
-        <th>Store_id</th>
-        <th>name</th>
-        <th>adress</th>
+        <th>Item<br>Number</th>
+        <th>Model</th>
+        <th>Wholesale</th>
+        <th>Ordered<br>Quantity</th>
+        <th>Total</th>
     </tr>";
     
 while($row = $result->fetch_assoc()) {
     echo "<tr>";
-    echo "<td>" . $row['store_id'] . "</td>";
-    echo "<td>" . $row['store_name'] . "</td>";
-    echo "<td>" . $row['store_adress'] . "</td>";
+    echo "<td>" . $row['item_no'] . "</td>";
+    echo "<td>" . $row['model'] . "</td>";
+    echo "<td>" . $row['wholesale'] . "</td>";
+    echo "<td>" . $row['ordered_qty'] . "</td>";
+    echo "<td>" . $row['total'] . "</td>";
     echo "</tr>";
 }
 echo "</table>";
+
 $conn->close();
-echo "connexion ended!"
+echo "connexion ended"
 ?>
 </body>
 </html>
