@@ -4,8 +4,9 @@ DELIMITER $$
 CREATE PROCEDURE sp_update_inventory(p_upc varchar(30), p_store_id INT(4))
 BEGIN     
     DECLARE v_item_in_db VARCHAR(30);
-    DECLARE v_scaned_qty INT default 0;
     DECLARE v_is_present INT DEFAULT FALSE;
+    
+    DECLARE v_scaned_qty INT default 0;
     
     SELECT scaned_qty INTO v_scaned_qty FROM INVENTORY WHERE upc = p_upc;
     SELECT upc INTO v_item_in_db FROM ITEM WHERE upc = p_upc;
@@ -33,6 +34,21 @@ BEGIN
         RAISE ERROR
     */
     END IF;
+    
+    -- We suppose that the item exists in the Database. 
+    SELECT
+        IFNULL((select model from item where upc=p_upc), 0) = 1 as in_inventory, -- Return 1 if the item is in the inventory and 0 otherwise
+        item_no, 
+        model, 
+        wholesale, 
+        scaned_qty
+    FROM 
+        ITEM, 
+        INVENTORY 
+    WHERE 
+        ITEM.upc = INVENTORY.upc AND 
+        ITEM.upc = p_upc;
+
 END;
 $$
 DELIMITER ;
