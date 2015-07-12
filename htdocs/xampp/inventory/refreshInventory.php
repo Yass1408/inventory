@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="js/jquery-1.11.3.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 <style>
 table {
     border-collapse: collapse;
@@ -44,8 +46,7 @@ SELECT
     item_no, 
     model, 
     wholesale, 
-    ordered_qty,  
-    wholesale * ordered_qty as total 
+    scaned_qty
 FROM 
     ITEM, 
     INVENTORY 
@@ -59,17 +60,15 @@ echo "
         <th>Item<br>Number</th>
         <th>Model</th>
         <th>Wholesale</th>
-        <th>Ordered<br>Quantity</th>
-        <th>Total</th>
+        <th>scaned<br>Quantity</th>
     </tr>";
     
 while($row = $result->fetch_assoc()) {
     echo "<tr>";
     echo "<td>" . $row['item_no'] . "</td>";
     echo "<td>" . $row['model'] . "</td>";
-    echo "<td>" . $row['wholesale'] . "</td>";
-    echo "<td>" . $row['ordered_qty'] . "</td>";
-    echo "<td>" . $row['total'] . "</td>";
+    echo "<td>" . $row['wholesale'] . "$</td>";
+    echo "<td>" . $row['scaned_qty'] . "</td>";
     echo "</tr>";
 }
 echo "</table>";
@@ -77,5 +76,21 @@ echo "</table>";
 $conn->close();
 echo "connexion ended"
 ?>
+<p>Scan new item in the input field below</p>
+<form>
+    <input type="text" autofocus onkeypress="myFunction(event)">
+</form>
+
+<script>
+function myFunction(event) {
+    var x = event.which || event.keyCode;
+
+    if (x == 13) {
+        alert("Return key pressed!");
+    }
+
+}
+</script>
+
 </body>
 </html>
