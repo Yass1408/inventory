@@ -33,6 +33,7 @@ if ($conn->connect_error) {
 
 // Convert the query result into utf8
 $conn->query("SET character_set_results=utf8");
+
 $sql="
 SELECT 
     item_no, 
@@ -46,27 +47,44 @@ WHERE
     ITEM.upc = INVENTORY.upc AND
     ITEM.upc = '".$upc."'";
 
+
+$sql ="CALL sp_update_inventory('".$upc."', '1')";
+
+/*
+if (!($stmt = $mysqli->prepare("CALL sp_update_inventory(?, ?)"))) {
+    echo "Echec lors de la préparation : (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+$stmt->bind_param("ss", $upc, $store_id);
+*/
+   
+
 $result = $conn->query($sql);
 
-echo '
-<div id="inventory">
-    <table>
-        <tr>
-            <th>Item<br>Number</th>
-            <th>Model</th>
-            <th>Wholesale</th>
-            <th>scaned<br>Quantity</th>
-        </tr>';
-    
-while($row = $result->fetch_assoc()) {
-    echo "<tr>";
-    echo "<td>" . $row['item_no'] . "</td>";
-    echo "<td>" . $row['model'] . "</td>";
-    echo "<td>" . $row['wholesale'] . "$</td>";
-    echo "<td>" . $row['scaned_qty'] . "</td>";
-    echo "</tr>";
+if (!$result) {
+    echo "this item is not in the inventory!";
+} else {
+
+    echo '
+    <div id="inventory">
+        <table>
+            <tr>
+                <th>Item<br>Number</th>
+                <th>Model</th>
+                <th>Wholesale</th>
+                <th>scaned<br>Quantity</th>
+            </tr>';
+        
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row['item_no'] . "</td>";
+        echo "<td>" . $row['model'] . "</td>";
+        echo "<td>" . $row['wholesale'] . "$</td>";
+        echo "<td>" . $row['scaned_qty'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table></div>";
 }
-echo "</table></div>";
 
 $conn->close();?>
 </body>
