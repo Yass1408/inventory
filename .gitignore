@@ -1,10 +1,8 @@
-# Ignore everything
-*
-
-# But not these files...
-!.gitignore
-!htdocs/xampp/inventory/
-!workspace/
-
-# ...even if they are in subdirectories
-!*/
+/*
+/*/
+!/workspace/
+!/htdocs
+/htdocs/*
+!/htdocs/xampp
+/htdocs/xampp/*
+!/htdocs/xampp/inventory
