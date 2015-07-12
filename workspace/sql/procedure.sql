@@ -42,12 +42,20 @@ BEGIN
             ITEM, 
             INVENTORY 
         WHERE 
-            ITEM.upc = INVENTORY.upc AND 
-            ITEM.upc = p_upc;
+            ITEM.upc = INVENTORY.upc;
     
     /*ELSE
-        RAISE ERROR
-    */
+        -- We suppose that the item exists in the Database. 
+        SELECT
+            IFNULL((select model from item where upc=p_upc), 0) = 1 as in_inventory, -- Return 1 if the item is in the inventory and 0 otherwise
+            item_no, 
+            model, 
+            wholesale, 
+            '1' as scaned_qty
+        FROM 
+            ITEM
+        WHERE upc = p_upc;*/
+            
     END IF;
     
    

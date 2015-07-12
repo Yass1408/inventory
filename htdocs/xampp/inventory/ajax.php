@@ -21,16 +21,7 @@ th {text-align: left;}
 <body>
 
 <?php
-
-/*
-if (!($stmt = $mysqli->prepare("CALL sp_update_inventory(?, ?)"))) {
-    echo "Echec lors de la préparation : (" . $mysqli->errno . ") " . $mysqli->error;
-}
-
-$stmt->bind_param("ss", $upc, $store_id);
-*/
-
-$servername = "localhost";
+/*$servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "eos";
@@ -64,8 +55,8 @@ WHERE ITEM.upc = INVENTORY.upc";
 $result = $conn->query($sql);
 
 echo '
-<div id="inventoryTable-wrapper">
-    <table id="inventoryTable">
+<div id="inventory">
+    <table>
         <tr>
             <th>Item<br>Number</th>
             <th>Model</th>
@@ -85,7 +76,7 @@ echo "</table></div>";
 
 $conn->close();
 echo "<br><br>connexion ended"
-?>
+*/?>
 
 <script>
 function showUser(key, upc) {
@@ -93,7 +84,7 @@ function showUser(key, upc) {
 
     if (x == 13) {
         if (upc == "") {
-            document.getElementById("inventoryTable-wrapper").innerHTML = "";
+            document.getElementById("inventoryTable").innerHTML = "";
             return;
         } else { 
             if (window.XMLHttpRequest) {
@@ -105,7 +96,7 @@ function showUser(key, upc) {
             }
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("inventoryTable-wrapper").innerHTML = xmlhttp.responseText;
+                    document.getElementById("inventoryTable").innerHTML = xmlhttp.responseText;
                 }
             }
             xmlhttp.open("GET","newItemInventory.php?upc="+upc,true);
@@ -115,29 +106,14 @@ function showUser(key, upc) {
             document.getElementById("upc").value = "";
         }
     }
-    
-    function addNewItem(item_no, model, wholesale, scaned_qty) {
-        var table = document.getElementById("inventoryTable");
-        var row = table.insertRow(-1);
-
-        var cell0 = row.insertCell(0);
-        var cell1 = row.insertCell(1);
-        var cell2 = row.insertCell(2);
-        var cell3 = row.insertCell(3);
-
-        cell0.innerHTML = item_no;
-        cell1.innerHTML = model;
-        cell2.innerHTML = wholesale;
-        cell3.innerHTML = scaned_qty;
-    }
 }
 </script>
 
 <p>Scan new item in the input field below</p>
-<input id ="upc" type="text" name="upc" autofocus autocomplete="off" onkeypress="showUser(event, this.value)">
+<input id ="upc" type="text" name="upc" autofocus onkeypress="showUser(event, this.value)">
 
 <br>
-<div id="inventoryTable-wrapper"><b>Person info will be listed here...</b></div>
+<div id="inventoryTable"><b>Person info will be listed here...</b></div>
 
 </body>
 </html>

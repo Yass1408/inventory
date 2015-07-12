@@ -34,39 +34,37 @@ if ($conn->connect_error) {
 // Convert the query result into utf8
 $conn->query("SET character_set_results=utf8");
 
-$sql="
-SELECT 
-    item_no, 
-    model, 
-    wholesale, 
-    scaned_qty
-FROM 
-    ITEM, 
-    INVENTORY 
-WHERE 
-    ITEM.upc = INVENTORY.upc AND
-    ITEM.upc = '".$upc."'";
-
-
 $sql ="CALL sp_update_inventory('".$upc."', '1')";
-
-/*
-if (!($stmt = $mysqli->prepare("CALL sp_update_inventory(?, ?)"))) {
-    echo "Echec lors de la préparation : (" . $mysqli->errno . ") " . $mysqli->error;
-}
-
-$stmt->bind_param("ss", $upc, $store_id);
-*/
-   
+  
 
 $result = $conn->query($sql);
 
 if (!$result) {
-    echo "this item is not in the inventory!";
+    // this item is not in the inventory, 
+    // so we do not refresh all the table. 
+    // just add the last row
+    
+    $sql = "
+        SELECT
+            item_no, 
+            model, 
+            wholesale, 
+            '1' as scaned_qty
+        FROM 
+            ITEM
+        WHERE upc = '".$upc."'";
+        
+    $result = $conn->query($sql);
+    
+    while($row = $result->fetch_assoc()) {
+        echo "<script type='text/javascript'>"
+           , "addNewItem('" . $row[item_no] . "','" . $row[model] . "','" . $row[wholesale] . "','" . $row[scaned_qty] . "');"
+           , "</script>";
+    }
+
 } else {
 
     echo '
-    <div id="inventory">
         <table>
             <tr>
                 <th>Item<br>Number</th>
@@ -83,7 +81,7 @@ if (!$result) {
         echo "<td>" . $row['scaned_qty'] . "</td>";
         echo "</tr>";
     }
-    echo "</table></div>";
+    echo "</table>";
 }
 
 $conn->close();?>
