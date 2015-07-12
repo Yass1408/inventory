@@ -21,9 +21,9 @@ th {text-align: left;}
 <body>
 
 <?php
-$servername = "localhost";
-$username = "yassine";
-$password = "2217";
+/*$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "eos";
 
 // Create connection
@@ -35,11 +35,11 @@ if ($conn->connect_error) {
 
 // Convert the query result into utf8
 $conn->query("SET character_set_results=utf8");
-/*
+
 mb_language('uni'); 
 mb_internal_encoding('UTF-8');
 $conn->query("set names 'utf8'");
-*/
+
 
 $sql="
 SELECT 
@@ -54,14 +54,15 @@ WHERE ITEM.upc = INVENTORY.upc";
 
 $result = $conn->query($sql);
 
-echo "
-<table>
-    <tr>
-        <th>Item<br>Number</th>
-        <th>Model</th>
-        <th>Wholesale</th>
-        <th>scaned<br>Quantity</th>
-    </tr>";
+echo '
+<div id="inventory">
+    <table>
+        <tr>
+            <th>Item<br>Number</th>
+            <th>Model</th>
+            <th>Wholesale</th>
+            <th>scaned<br>Quantity</th>
+        </tr>';
     
 while($row = $result->fetch_assoc()) {
     echo "<tr>";
@@ -71,26 +72,48 @@ while($row = $result->fetch_assoc()) {
     echo "<td>" . $row['scaned_qty'] . "</td>";
     echo "</tr>";
 }
-echo "</table>";
+echo "</table></div>";
 
 $conn->close();
-echo "connexion ended"
-?>
-<p>Scan new item in the input field below</p>
-<form>
-    <input type="text" autofocus onkeypress="myFunction(event)">
-</form>
+echo "<br><br>connexion ended"
+*/?>
 
 <script>
-function myFunction(event) {
-    var x = event.which || event.keyCode;
+function showUser(key, upc) {
+    var x = key.which || key.keyCode;
 
     if (x == 13) {
-        alert("Return key pressed!");
+        if (upc == "") {
+            document.getElementById("inventoryTable").innerHTML = "";
+            return;
+        } else { 
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("inventoryTable").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET","newItemInventory.php?upc="+upc,true);
+            xmlhttp.send();
+            
+            // reset input for next scan
+            document.getElementById("upc").value = "";
+        }
     }
-
 }
 </script>
+
+<p>Scan new item in the input field below</p>
+<input id ="upc" type="text" name="upc" autofocus onkeypress="showUser(event, this.value)">
+
+<br>
+<div id="inventoryTable"><b>Person info will be listed here...</b></div>
 
 </body>
 </html>

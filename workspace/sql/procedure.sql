@@ -37,7 +37,7 @@ BEGIN
     
     -- We suppose that the item exists in the Database. 
     SELECT
-        IFNULL((select model from item where upc=p_upc), 0) = 1 as in_inventory, -- Return 1 if the item is in the inventory and 0 otherwise
+        --IFNULL((select model from item where upc=p_upc), 0) = 1 as in_inventory, -- Return 1 if the item is in the inventory and 0 otherwise
         item_no, 
         model, 
         wholesale, 
