@@ -1,8 +1,9 @@
 
-DROP PROCEDURE IF EXISTS sp_update_inventory;
+DROP FUNCTION IF EXISTS fx_update_inventory;
 DELIMITER $$
-CREATE PROCEDURE sp_update_inventory(p_upc varchar(30), p_store_id INT(4))
-BEGIN     
+CREATE FUNCTION fx_update_inventory(p_upc varchar(30), p_store_id INT(4))
+    RETURNS INT(1) READS SQL DATA
+BEGIN        
     DECLARE v_item_in_db VARCHAR(30);
     DECLARE v_scaned_qty INT default 0;
     DECLARE v_is_present INT DEFAULT FALSE;
@@ -33,6 +34,7 @@ BEGIN
         RAISE ERROR
     */
     END IF;
+RETURN v_is_present;
 END;
 $$
 DELIMITER ;
