@@ -1,26 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script src="js/jquery-1.11.3.js"></script>
-<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-<style>
-table {
-    border-collapse: collapse;
-}
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script src="js/jquery-1.11.3.js"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+		<style>
+			table {
+				border-collapse: collapse;
+			}
 
-table, td, th {
-    border: 1px solid black;
-    padding: 5px;
-}
+			table, td, th {
+				border: 1px solid black;
+				padding: 5px;
+			}
 
-th {text-align: left;}
-</style>
-</head>
+			th {
+				text-align: left;
+			}
+		</style>
+	</head>
 
-<body>
+	<body>
 
-<?php
+		<?php
 
 /*
 if (!($stmt = $mysqli->prepare("CALL sp_update_inventory(?, ?)"))) {
@@ -87,57 +89,62 @@ $conn->close();
 echo "<br><br>connexion ended"
 ?>
 
-<script>
-function showUser(key, upc) {
-    var x = key.which || key.keyCode;
+		<script>
+			function showUser(key, upc) {
+				var x = key.which || key.keyCode;
 
-    if (x == 13) {
-        if (upc == "") {
-            document.getElementById("inventoryTable-wrapper").innerHTML = "";
-            return;
-        } else { 
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("inventoryTable-wrapper").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open("GET","newItemInventory.php?upc="+upc,true);
-            xmlhttp.send();
-            
-            // reset input for next scan
-            document.getElementById("upc").value = "";
-        }
-    }
-    
-    function addNewItem(item_no, model, wholesale, scaned_qty) {
-        var table = document.getElementById("inventoryTable");
-        var row = table.insertRow(-1);
+				if (x == 13) {
+					if (upc == "") {
+						document.getElementById("inventoryTable-wrapper").innerHTML = "";
+						return;
+					} else {
+						if (window.XMLHttpRequest) {
+							// code for IE7+, Firefox, Chrome, Opera, Safari
+							xmlhttp = new XMLHttpRequest();
+						} else {
+							// code for IE6, IE5
+							xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+						}
+						xmlhttp.onreadystatechange = function() {
+							if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+								document.getElementById("inventoryTable-wrapper").innerHTML = xmlhttp.responseText;
+							}
+						}
+						xmlhttp.open("GET", "newItemInventory.php?upc=" + upc, true);
+						xmlhttp.send();
 
-        var cell0 = row.insertCell(0);
-        var cell1 = row.insertCell(1);
-        var cell2 = row.insertCell(2);
-        var cell3 = row.insertCell(3);
+						// reset input for next scan
+						document.getElementById("upc").value = "";
+					}
+				}
 
-        cell0.innerHTML = item_no;
-        cell1.innerHTML = model;
-        cell2.innerHTML = wholesale;
-        cell3.innerHTML = scaned_qty;
-    }
-}
-</script>
+				function addNewItem(item_no, model, wholesale, scaned_qty) {
+					var table = document.getElementById("inventoryTable");
+					var row = table.insertRow(-1);
 
-<p>Scan new item in the input field below</p>
-<input id ="upc" type="text" name="upc" autofocus autocomplete="off" onkeypress="showUser(event, this.value)">
+					var cell0 = row.insertCell(0);
+					var cell1 = row.insertCell(1);
+					var cell2 = row.insertCell(2);
+					var cell3 = row.insertCell(3);
 
-<br>
-<div id="inventoryTable-wrapper"><b>Person info will be listed here...</b></div>
+					cell0.innerHTML = item_no;
+					cell1.innerHTML = model;
+					cell2.innerHTML = wholesale;
+					cell3.innerHTML = scaned_qty;
+				}
 
-</body>
+			}
+		</script>
+
+		<p>
+			Scan new item in the input field below
+		</p>
+		<input id ="upc" type="text" name="upc" autofocus autocomplete="off" onkeypress="showUser(event, this.value)">
+
+		<br>
+		<div id="inventoryTable-wrapper">
+			<b>Person info will be listed here...</b>
+		</div>
+
+	</body>
 </html>
