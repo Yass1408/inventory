@@ -26,12 +26,12 @@ if ($stmt = $conn->prepare("CALL sp_update_inventory(?, ?)")) {
     $stmt->execute() or die($stmt->error);
 
     if (!$result = $stmt->get_result()) {
-        echo "item_not_found"; // TODO: CREATE A SPECIAL ERROR FOR THIS CONDITION
+        echo "procedure sp_update_inventory return NULL"; // TODO: handle this error
 
     } else {
         $row = $result->fetch_assoc();
         if (!$row['in_db']) {
-            echo "the item is not in the database";
+            echo "item_not_found"; // TODO: CREATE A SPECIAL ERROR FOR THIS CONDITION
         } else {
             echo '
                     <table>

@@ -25,13 +25,13 @@
       <file leaf-file-name="refreshInventory.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/refreshInventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16847827">
-              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.17028986">
+              <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
               <folding>
-                <marker date="1436841089843" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
-                <marker date="1436841089843" expanded="true" signature="1156:1349" placeholder="..." />
-                <marker date="1436841089843" expanded="true" signature="1188:1349" placeholder="..." />
-                <marker date="1436841089843" expanded="true" signature="1201:1349" placeholder="..." />
+                <marker date="1436841450563" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
+                <marker date="1436841450563" expanded="true" signature="1156:1349" placeholder="..." />
+                <marker date="1436841450563" expanded="true" signature="1188:1349" placeholder="..." />
+                <marker date="1436841450563" expanded="true" signature="1201:1349" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -40,13 +40,13 @@
       <file leaf-file-name="newItemInventory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newItemInventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
-              <caret line="28" column="81" selection-start-line="28" selection-start-column="81" selection-end-line="28" selection-end-column="81" />
+            <state vertical-scroll-proportion="-2.6153846">
+              <caret line="28" column="84" selection-start-line="28" selection-start-column="84" selection-end-line="28" selection-end-column="84" />
               <folding>
-                <marker date="1436840305718" expanded="true" signature="951:1208" placeholder="..." />
-                <marker date="1436840305718" expanded="true" signature="951:1250" placeholder="..." />
-                <marker date="1436840305718" expanded="true" signature="980:1208" placeholder="..." />
-                <marker date="1436840305718" expanded="true" signature="1255:1293" placeholder="..." />
+                <marker date="1436841280288" expanded="true" signature="988:1245" placeholder="..." />
+                <marker date="1436841280288" expanded="true" signature="988:1287" placeholder="..." />
+                <marker date="1436841280288" expanded="true" signature="1017:1245" placeholder="..." />
+                <marker date="1436841280288" expanded="true" signature="1292:1330" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -255,10 +255,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="124" column="36" selection-start-line="124" selection-start-column="36" selection-end-line="124" selection-end-column="36" />
           <folding>
-            <marker date="1436841089843" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
-            <marker date="1436841089843" expanded="true" signature="1156:1349" placeholder="..." />
-            <marker date="1436841089843" expanded="true" signature="1188:1349" placeholder="..." />
-            <marker date="1436841089843" expanded="true" signature="1201:1349" placeholder="..." />
+            <marker date="1436841450563" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
+            <marker date="1436841450563" expanded="true" signature="1156:1349" placeholder="..." />
+            <marker date="1436841450563" expanded="true" signature="1188:1349" placeholder="..." />
+            <marker date="1436841450563" expanded="true" signature="1201:1349" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -268,10 +268,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1436840305718" expanded="true" signature="951:1208" placeholder="..." />
-            <marker date="1436840305718" expanded="true" signature="951:1250" placeholder="..." />
-            <marker date="1436840305718" expanded="true" signature="980:1208" placeholder="..." />
-            <marker date="1436840305718" expanded="true" signature="1255:1293" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="988:1245" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="988:1287" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="1017:1245" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="1292:1330" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -281,10 +281,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1436841089843" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
-            <marker date="1436841089843" expanded="true" signature="1156:1349" placeholder="..." />
-            <marker date="1436841089843" expanded="true" signature="1188:1349" placeholder="..." />
-            <marker date="1436841089843" expanded="true" signature="1201:1349" placeholder="..." />
+            <marker date="1436841450563" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
+            <marker date="1436841450563" expanded="true" signature="1156:1349" placeholder="..." />
+            <marker date="1436841450563" expanded="true" signature="1188:1349" placeholder="..." />
+            <marker date="1436841450563" expanded="true" signature="1201:1349" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -294,10 +294,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
           <folding>
-            <marker date="1436840305718" expanded="true" signature="951:1208" placeholder="..." />
-            <marker date="1436840305718" expanded="true" signature="951:1250" placeholder="..." />
-            <marker date="1436840305718" expanded="true" signature="980:1208" placeholder="..." />
-            <marker date="1436840305718" expanded="true" signature="1255:1293" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="988:1245" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="988:1287" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="1017:1245" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="1292:1330" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -312,26 +312,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/newItemInventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="28" column="81" selection-start-line="28" selection-start-column="81" selection-end-line="28" selection-end-column="81" />
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="28" column="84" selection-start-line="28" selection-start-column="84" selection-end-line="28" selection-end-column="84" />
           <folding>
-            <marker date="1436840305718" expanded="true" signature="951:1208" placeholder="..." />
-            <marker date="1436840305718" expanded="true" signature="951:1250" placeholder="..." />
-            <marker date="1436840305718" expanded="true" signature="980:1208" placeholder="..." />
-            <marker date="1436840305718" expanded="true" signature="1255:1293" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="988:1245" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="988:1287" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="1017:1245" placeholder="..." />
+            <marker date="1436841280288" expanded="true" signature="1292:1330" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/refreshInventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16847827">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.17028986">
+          <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
           <folding>
-            <marker date="1436841089843" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
-            <marker date="1436841089843" expanded="true" signature="1156:1349" placeholder="..." />
-            <marker date="1436841089843" expanded="true" signature="1188:1349" placeholder="..." />
-            <marker date="1436841089843" expanded="true" signature="1201:1349" placeholder="..." />
+            <marker date="1436841450563" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
+            <marker date="1436841450563" expanded="true" signature="1156:1349" placeholder="..." />
+            <marker date="1436841450563" expanded="true" signature="1188:1349" placeholder="..." />
+            <marker date="1436841450563" expanded="true" signature="1201:1349" placeholder="..." />
           </folding>
         </state>
       </provider>
