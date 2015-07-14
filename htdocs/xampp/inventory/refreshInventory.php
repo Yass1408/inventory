@@ -82,8 +82,9 @@ echo "<br><br>connexion ended"
 ?>
 
 <script>
-    function loadXMLDoc(url, cfunc) {
+    var xmlhttp;
 
+    function loadXMLDoc(url, cfunc) {
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -96,7 +97,6 @@ echo "<br><br>connexion ended"
         xmlhttp.send();
     }
 
-
     function updateInventory(key, upc) {
         var x = key.which || key.keyCode;
 
@@ -106,6 +106,7 @@ echo "<br><br>connexion ended"
             // add the scanned item in the inventory
             loadXMLDoc("newItemInventory.php?upc="+upc, function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    alert(xmlhttp.responseText);
                     document.getElementById("inventoryTable-wrapper").innerHTML = xmlhttp.responseText;
                 }
             });

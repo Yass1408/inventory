@@ -30,7 +30,7 @@ BEGIN
     
         
         SELECT
-            --IFNULL((select model from item where upc=p_upc), 0) = 1 as in_inventory, -- Return 1 if the item is in the inventory and 0 otherwise
+            1 as in_db,
             item_no, 
             model, 
             wholesale, 
@@ -42,10 +42,13 @@ BEGIN
             ITEM.upc = INVENTORY.upc;
     
     ELSE
-    -- will an error if the item does not exists in the database
+        
+        SELECT 0 as in_db;
+        /*
+        -- will an error if the item does not exists in the database
         SIGNAL item_not_found
         SET MESSAGE_TEXT = 'The item is not in the database.', MYSQL_ERRNO = 1000;
-        
+        */
             
     END IF;
 END;
