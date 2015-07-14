@@ -25,13 +25,13 @@
       <file leaf-file-name="refreshInventory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/refreshInventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-48.5">
-              <caret line="124" column="36" selection-start-line="124" selection-start-column="36" selection-end-line="124" selection-end-column="36" />
+            <state vertical-scroll-proportion="-3.5454545">
+              <caret line="109" column="17" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="17" />
               <folding>
-                <marker date="1436747382770" expanded="true" signature="1090:1217" placeholder="SELECT item_..ITEM..." />
-                <marker date="1436747382770" expanded="true" signature="1291:1484" placeholder="..." />
-                <marker date="1436747382770" expanded="true" signature="1323:1484" placeholder="..." />
-                <marker date="1436747382770" expanded="true" signature="1336:1484" placeholder="..." />
+                <marker date="1436831687767" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
+                <marker date="1436831687767" expanded="true" signature="1156:1349" placeholder="..." />
+                <marker date="1436831687767" expanded="true" signature="1188:1349" placeholder="..." />
+                <marker date="1436831687767" expanded="true" signature="1201:1349" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -40,11 +40,14 @@
       <file leaf-file-name="newItemInventory.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/newItemInventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1996558">
-              <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.2685026">
+              <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
               <folding>
-                <marker date="1436758498224" expanded="true" signature="941:1198" placeholder="..." />
-                <marker date="1436758498224" expanded="true" signature="970:1198" placeholder="..." />
+                <marker date="1436834992780" expanded="true" signature="1388:1645" placeholder="..." />
+                <marker date="1436834992780" expanded="true" signature="1417:1645" placeholder="..." />
+                <marker date="1436834992780" expanded="true" signature="2316:2573" placeholder="..." />
+                <marker date="1436834992780" expanded="true" signature="2316:2634" placeholder="..." />
+                <marker date="1436834992780" expanded="true" signature="2345:2573" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -55,6 +58,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/refreshInventory.php" />
         <option value="$PROJECT_DIR$/newItemInventory.php" />
       </list>
     </option>
@@ -66,11 +70,14 @@
   <component name="NamedScopeManager">
     <order />
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -142,6 +149,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -152,7 +160,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -182,6 +189,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
   </component>
@@ -199,27 +212,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24302496" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24450952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -241,12 +254,39 @@
     <entry file="file://$PROJECT_DIR$/refreshInventory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="124" column="36" selection-start-line="124" selection-start-column="36" selection-end-line="124" selection-end-column="36" />
+          <folding>
+            <marker date="1436831687767" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
+            <marker date="1436831687767" expanded="true" signature="1156:1349" placeholder="..." />
+            <marker date="1436831687767" expanded="true" signature="1188:1349" placeholder="..." />
+            <marker date="1436831687767" expanded="true" signature="1201:1349" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newItemInventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1436747382770" expanded="true" signature="1090:1217" placeholder="SELECT item_..ITEM..." />
-            <marker date="1436747382770" expanded="true" signature="1291:1484" placeholder="..." />
-            <marker date="1436747382770" expanded="true" signature="1323:1484" placeholder="..." />
-            <marker date="1436747382770" expanded="true" signature="1336:1484" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="1388:1645" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="1417:1645" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="2316:2573" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="2316:2634" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="2345:2573" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/refreshInventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1436831687767" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
+            <marker date="1436831687767" expanded="true" signature="1156:1349" placeholder="..." />
+            <marker date="1436831687767" expanded="true" signature="1188:1349" placeholder="..." />
+            <marker date="1436831687767" expanded="true" signature="1201:1349" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -256,32 +296,38 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
           <folding>
-            <marker date="1436758498224" expanded="true" signature="941:1198" placeholder="..." />
-            <marker date="1436758498224" expanded="true" signature="970:1198" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="1388:1645" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="1417:1645" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="2316:2573" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="2316:2634" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="2345:2573" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/refreshInventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-48.5">
-          <caret line="124" column="36" selection-start-line="124" selection-start-column="36" selection-end-line="124" selection-end-column="36" />
+        <state vertical-scroll-proportion="-3.5454545">
+          <caret line="109" column="17" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="17" />
           <folding>
-            <marker date="1436747382770" expanded="true" signature="1090:1217" placeholder="SELECT item_..ITEM..." />
-            <marker date="1436747382770" expanded="true" signature="1291:1484" placeholder="..." />
-            <marker date="1436747382770" expanded="true" signature="1323:1484" placeholder="..." />
-            <marker date="1436747382770" expanded="true" signature="1336:1484" placeholder="..." />
+            <marker date="1436831687767" expanded="true" signature="955:1082" placeholder="SELECT item_..ITEM..." />
+            <marker date="1436831687767" expanded="true" signature="1156:1349" placeholder="..." />
+            <marker date="1436831687767" expanded="true" signature="1188:1349" placeholder="..." />
+            <marker date="1436831687767" expanded="true" signature="1201:1349" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/newItemInventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1996558">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.2685026">
+          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
           <folding>
-            <marker date="1436758498224" expanded="true" signature="941:1198" placeholder="..." />
-            <marker date="1436758498224" expanded="true" signature="970:1198" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="1388:1645" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="1417:1645" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="2316:2573" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="2316:2634" placeholder="..." />
+            <marker date="1436834992780" expanded="true" signature="2345:2573" placeholder="..." />
           </folding>
         </state>
       </provider>
