@@ -104,7 +104,7 @@ echo "<br><br>connexion ended"
         if (x == 13) {
 
             // add the scanned item in the inventory
-            loadXMLDoc("newItemInventory.php?upc=" + upc, function () {
+            loadXMLDoc("scanItem.php?upc=" + upc, function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     if (xmlhttp.responseText == "item_not_found") {
                         alert("would you like to add the new item"); //TODO create a popup with new item info
