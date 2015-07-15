@@ -33,14 +33,6 @@ if ($stmt = $conn->prepare("CALL sp_update_inventory(?, ?)")) {
         if (!$row['in_db']) {
             echo "item_not_found"; // TODO: CREATE A SPECIAL ERROR FOR THIS CONDITION
         } else {
-            echo '
-                    <table>
-                        <tr>
-                            <th>Item<br>Number</th>
-                            <th>Model</th>
-                            <th>Wholesale</th>
-                            <th>scaned<br>Quantity</th>
-                        </tr>';
 
             do {
                 echo "<tr>";
