@@ -3,6 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 
@@ -192,7 +194,6 @@ function getPackage()
 
     </fieldset>
 </form>
-<script src="js/jquery-1.11.3.js"></script>
 </body>
 </html>
 

@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <script src="js/jquery-1.11.3.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
 
     <!-- FOR PRODUCTION
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -118,15 +119,16 @@ WHERE ITEM.upc = INVENTORY.upc";
         $result = $conn->query($sql);
 
         echo '
-<div class="col-md-9">
+<div class="col-md-8">
     <table id="inventoryTable" class="table table-list-search table-hover">
         <thead>
         <tr>
             <th>Item Number</th>
             <th>Model</th>
             <th>Wholesale</th>
-            <th>Scaned Quantity</th>
+            <th>Quantity</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody id="inventory-data">';
@@ -138,6 +140,7 @@ WHERE ITEM.upc = INVENTORY.upc";
             echo "<td>" . $row['wholesale'] . "$</td>";
             echo "<td>" . $row['scaned_qty'] . "</td>";
             echo "<td><button class='btn btn-xs' data-toggle='modal' data-target='#edit-item-qty'><span class='glyphicon glyphicon-pencil'></span></button></td>";
+            echo '<td><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></td>';
             echo "</tr>";
         }
         echo "</tbody></table></div>";
@@ -152,10 +155,6 @@ WHERE ITEM.upc = INVENTORY.upc";
         </div>
     </div>
 </div>
-
-<!-- JS dependencies -->
-<script src="js/jquery-1.11.3.js"></script>
-<script src="bootstrap/js/bootstrap.js"></script>
 
 <!-- JS to put into a load event callback -->
 <script>
