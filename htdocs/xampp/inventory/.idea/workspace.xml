@@ -42,28 +42,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Inventory.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Inventory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Inventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="174" column="46" selection-start-line="174" selection-start-column="31" selection-end-line="174" selection-end-column="46" />
+            <state vertical-scroll-proportion="-5.5636363">
+              <caret line="85" column="70" selection-start-line="85" selection-start-column="70" selection-end-line="85" selection-end-column="70" />
               <folding>
-                <element signature="e#8972#9388#0#HTML" expanded="false" />
-                <marker date="1437190184467" expanded="true" signature="5238:5372" placeholder="SELECT ITEM...ITEM..." />
-                <marker date="1437190184467" expanded="true" signature="5451:5798" placeholder="..." />
-                <marker date="1437190184467" expanded="true" signature="5527:5798" placeholder="..." />
-                <marker date="1437190184467" expanded="true" signature="5543:5762" placeholder="..." />
-                <marker date="1437190184467" expanded="true" signature="5556:5745" placeholder="..." />
+                <element signature="e#8993#9409#0#HTML" expanded="false" />
+                <marker date="1437192397275" expanded="true" signature="5239:5373" placeholder="SELECT ITEM...ITEM..." />
+                <marker date="1437192397275" expanded="true" signature="5452:5799" placeholder="..." />
+                <marker date="1437192397275" expanded="true" signature="5528:5799" placeholder="..." />
+                <marker date="1437192397275" expanded="true" signature="5544:5763" placeholder="..." />
+                <marker date="1437192397275" expanded="true" signature="5557:5746" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scanItem.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="scanItem.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scanItem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3846154">
-              <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.49741825">
+              <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -72,11 +72,11 @@
       <file leaf-file-name="removeItem.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/removeItem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.038462">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state vertical-scroll-proportion="-11.115385">
+              <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
               <folding>
-                <marker date="1437188210124" expanded="true" signature="426:461" placeholder="DELETE FROM ..." />
-                <marker date="1437188210124" expanded="true" signature="463:601" placeholder="SELECT ITEM...ITEM..." />
+                <marker date="1437191758702" expanded="true" signature="426:461" placeholder="DELETE FROM ..." />
+                <marker date="1437191758702" expanded="true" signature="463:601" placeholder="SELECT ITEM...ITEM..." />
               </folding>
             </state>
           </provider>
@@ -110,8 +110,8 @@
       <file leaf-file-name="console_1.sql" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/56258d88-1f95-4a88-87ca-e7e47b6eac4f/console_1.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.85">
-              <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+            <state vertical-scroll-proportion="-0.56666666">
+              <caret line="2" column="55" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -127,10 +127,10 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/56258d88-1f95-4a88-87ca-e7e47b6eac4f/console.sql" />
         <option value="$PROJECT_DIR$/js/inventory.js" />
         <option value="$PROJECT_DIR$/refreshInventory.php" />
-        <option value="$PROJECT_DIR$/removeItem.php" />
         <option value="$PROJECT_DIR$/editQuantity.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/56258d88-1f95-4a88-87ca-e7e47b6eac4f/console_1.sql" />
         <option value="$PROJECT_DIR$/scanItem.php" />
+        <option value="$PROJECT_DIR$/removeItem.php" />
         <option value="$PROJECT_DIR$/Inventory.php" />
       </list>
     </option>
@@ -346,33 +346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/56258d88-1f95-4a88-87ca-e7e47b6eac4f/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.85">
-          <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scanItem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3846154">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/removeItem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.038462">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <marker date="1437188210124" expanded="true" signature="426:461" placeholder="DELETE FROM ..." />
-            <marker date="1437188210124" expanded="true" signature="463:601" placeholder="SELECT ITEM...ITEM..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/updateQuantity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693">
@@ -384,18 +357,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/56258d88-1f95-4a88-87ca-e7e47b6eac4f/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.56666666">
+          <caret line="2" column="55" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/removeItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding>
+            <marker date="1437191758702" expanded="true" signature="426:461" placeholder="DELETE FROM ..." />
+            <marker date="1437191758702" expanded="true" signature="463:601" placeholder="SELECT ITEM...ITEM..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Inventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="174" column="46" selection-start-line="174" selection-start-column="31" selection-end-line="174" selection-end-column="46" />
+        <state vertical-scroll-proportion="-5.5636363">
+          <caret line="85" column="70" selection-start-line="85" selection-start-column="70" selection-end-line="85" selection-end-column="70" />
           <folding>
-            <element signature="e#8972#9388#0#HTML" expanded="false" />
-            <marker date="1437190184467" expanded="true" signature="5238:5372" placeholder="SELECT ITEM...ITEM..." />
-            <marker date="1437190184467" expanded="true" signature="5451:5798" placeholder="..." />
-            <marker date="1437190184467" expanded="true" signature="5527:5798" placeholder="..." />
-            <marker date="1437190184467" expanded="true" signature="5543:5762" placeholder="..." />
-            <marker date="1437190184467" expanded="true" signature="5556:5745" placeholder="..." />
+            <element signature="e#8993#9409#0#HTML" expanded="false" />
+            <marker date="1437192397275" expanded="true" signature="5239:5373" placeholder="SELECT ITEM...ITEM..." />
+            <marker date="1437192397275" expanded="true" signature="5452:5799" placeholder="..." />
+            <marker date="1437192397275" expanded="true" signature="5528:5799" placeholder="..." />
+            <marker date="1437192397275" expanded="true" signature="5544:5763" placeholder="..." />
+            <marker date="1437192397275" expanded="true" signature="5557:5746" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scanItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49741825">
+          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>

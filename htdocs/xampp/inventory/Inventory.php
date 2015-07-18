@@ -61,7 +61,7 @@
                                    class="form-control input-md"
                                    autocomplete="off" required="">
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="updateQuantity(this->value, $('new-item-qty').value)">Save</button>
+                        <button type="button" class="btn btn-primary" onclick="updateQuantity(this->value, $('new-item-qty').val())">Save</button>
                     </div>
                 </div>
 
@@ -83,7 +83,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary">Yes</button>
+                        <button type="button" class="btn btn-primary" >Yes</button>
                     </div>
                 </div>
 
@@ -216,6 +216,7 @@ WHERE ITEM.upc = INVENTORY.upc";
     }
 
     function removeItem(upc) {
+        alert(upc);
         loadXMLDoc("removeItem.php?upc=" + upc, function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
