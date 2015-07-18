@@ -23,27 +23,24 @@ if ($stmt = $conn->prepare("CALL sp_update_inventory(?, ?)")) {
     $stmt->bind_param('si', $upc, $store_id);
 
     /* execute query */
-    $stmt->execute() or die($stmt->error);
+    $stmt->execute();
 
     if (!$result = $stmt->get_result()) {
-        echo "procedure sp_update_inventory return NULL"; // TODO: handle this error
+        //the query return NULL
+        echo "item_not_found"; // TODO: handle this error
 
     } else {
-        $row = $result->fetch_assoc();
-        if (!$row['in_db']) {
-            echo "item_not_found"; // TODO: CREATE A SPECIAL ERROR FOR THIS CONDITION
-        } else {
-
-            do {
-                echo "<tr>";
-                echo "<td>" . $row['item_no'] . "</td>";
-                echo "<td>" . $row['model'] . "</td>";
-                echo "<td>" . $row['wholesale'] . "$</td>";
-                echo "<td>" . $row['scaned_qty'] . "</td>";
-                echo "</tr>";
-            } while ($row = $result->fetch_assoc());
-            echo "</table>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row['item_no'] . "</td>";
+            echo "<td>" . $row['model'] . "</td>";
+            echo "<td>" . $row['wholesale'] . "$</td>";
+            echo "<td>" . $row['scaned_qty'] . "</td>";
+            echo "<td><button class='btn btn-xs' value=" . $row['upc'] . " data-toggle='modal' data-target='#edit-item-qty'><span class='glyphicon glyphicon-pencil'></span></button></td>";
+            echo '<td><button class="btn btn-danger btn-xs" value=' . $row['upc'] . ' data-title="Delete" data-toggle="modal" data-target="#remove-item" ><span class="glyphicon glyphicon-trash"></span></button></td>';
+            echo "</tr>";
         }
+        echo "</table>";
     }
     /* free results */
     $stmt->free_result();

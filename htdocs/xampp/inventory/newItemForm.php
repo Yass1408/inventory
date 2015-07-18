@@ -9,6 +9,8 @@
 <body>
 
 <?php
+$upc = $_GET['upc'];
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -60,7 +62,7 @@ function getPackage()
     <fieldset>
 
         <!-- Form Name -->
-        <legend>Insert new Item</legend>
+        <legend>Insert new Item <br><?php echo $upc ?></legend>
 
         <!-- Text input-->
         <div class="form-group">
