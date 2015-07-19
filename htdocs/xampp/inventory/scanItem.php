@@ -36,8 +36,8 @@ if ($stmt = $conn->prepare("CALL sp_update_inventory(?, ?)")) {
             echo "<td>" . $row['model'] . "</td>";
             echo "<td>" . $row['wholesale'] . "$</td>";
             echo "<td>" . $row['scaned_qty'] . "</td>";
-            echo "<td><button class='btn btn-xs' value=" . $row['upc'] . " data-toggle='modal' data-target='#edit-item-qty'><span class='glyphicon glyphicon-pencil'></span></button></td>";
-            echo '<td><button class="btn btn-danger btn-xs" value=' . $row['upc'] . ' data-title="Delete" data-toggle="modal" data-target="#remove-item" ><span class="glyphicon glyphicon-trash"></span></button></td>';
+            echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
+            echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
             echo "</tr>";
         }
         echo "</table>";

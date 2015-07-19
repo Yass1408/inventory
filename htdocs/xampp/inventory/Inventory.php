@@ -20,11 +20,11 @@
 <div class="container">
     <div class="row">
 
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#newItemConfirm">Open Modal
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-new-item">Open Modal
         </button>
 
         <!-- Item Not Found Modal -->
-        <div id="newItemConfirm" class="modal fade" role="dialog">
+        <div id="modal-new-item" class="modal fade" role="dialog">
             <div class="modal-dialog modal-sm">
 
                 <!-- Item Not Found Modal content-->
@@ -45,23 +45,27 @@
             </div>
         </div>
 
-        <!-- Update Item Quantity Modal -->
-        <div id="edit-item-qty" class="modal fade" role="dialog">
+        <!-- Edit Item Quantity Modal -->
+        <div id="modal-edit-item-qty" class="modal fade" role="dialog">
             <div class="modal-dialog modal-sm">
 
-                <!-- Update Item Quantity Modal content-->
+                <!-- Edit Item Quantity Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Edit item</h4>
                     </div>
                     <div class="modal-body">
+                        <p id="lbl-edit-item-mes"></p>
+
                         <div class="col-md-9">
                             <input id="new-item-qty" name="new-item-qty" type="number" placeholder="Item Quantity"
                                    class="form-control input-md"
                                    autocomplete="off" required="">
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="updateQuantity(this->value, $('new-item-qty').val())">Save</button>
+                        <button id="btn-edit-item" type="button" class="btn btn-primary" data-upc=""
+                                onclick="updateQuantity($(this).data('upc'), $('#new-item-qty').val())">Save
+                        </button>
                     </div>
                 </div>
 
@@ -69,7 +73,7 @@
         </div>
 
         <!-- Remove Item Modal -->
-        <div id="remove-item" class="modal fade" role="dialog">
+        <div id="modal-remove-item" class="modal fade" role="dialog">
             <div class="modal-dialog modal-sm">
 
                 <!-- Remove Item Modal content-->
@@ -79,11 +83,11 @@
                         <h4 class="modal-title">Remove item</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to remove this item from the inventory?</p>
+                        <p id="lbl-remove-item-mes"></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary" >Yes</button>
+                        <button  id="btn-remove-item" type="button" class="btn btn-primary" data-upc="" onclick="removeItem($(this).data('upc'))">Yes</button>
                     </div>
                 </div>
 
@@ -156,12 +160,12 @@ WHERE ITEM.upc = INVENTORY.upc";
 
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row['item_no'] . "</td>"; // TODO evens and odds row have different color http://bootsnipp.com/snippets/featured/bootstrap-snipp-for-datatable
+            echo "<td>" . $row['item_no'] . "</td>";
             echo "<td>" . $row['model'] . "</td>";
             echo "<td>" . $row['wholesale'] . "$</td>";
             echo "<td>" . $row['scaned_qty'] . "</td>";
-            echo "<td><button class='btn btn-xs' value=" . $row['upc'] . " data-toggle='modal' data-target='#edit-item-qty'><span class='glyphicon glyphicon-pencil'></span></button></td>";
-            echo '<td><button class="btn btn-danger btn-xs" value=' . $row['upc'] . ' data-title="Delete" data-toggle="modal" data-target="#remove-item" ><span class="glyphicon glyphicon-trash"></span></button></td>';
+            echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
+            echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
             echo "</tr>";
         }
         echo "</tbody></table></div>";
@@ -172,7 +176,7 @@ WHERE ITEM.upc = INVENTORY.upc";
         <div class="col-md-3">
             <input class="form-control" id="txtFldupc" name="upc" autofocus autocomplete="off"
                    placeholder="Scan UPC here"
-                   onkeypress="updateInventory(event, this.value)">
+                   onkeypress="scanItem(event, this.value)">
         </div>
     </div>
 </div>
@@ -194,7 +198,7 @@ WHERE ITEM.upc = INVENTORY.upc";
         xmlhttp.send();
     }
 
-    function updateInventory(key, upc) {
+    function scanItem(key, upc) {
         var x = key.which || key.keyCode;
 
         // if return is pressed
@@ -204,7 +208,7 @@ WHERE ITEM.upc = INVENTORY.upc";
             loadXMLDoc("scanItem.php?upc=" + upc, function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     if (xmlhttp.responseText == "item_not_found") { //TODO create a special error
-                        $('#newItemConfirm').modal();
+                        $('#modal-new-item').modal();
                     } else {
                         document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
                     }
@@ -216,22 +220,22 @@ WHERE ITEM.upc = INVENTORY.upc";
     }
 
     function removeItem(upc) {
-        alert(upc);
         loadXMLDoc("removeItem.php?upc=" + upc, function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
             }
         });
+        $('#modal-remove-item').modal('hide');
     }
 
     function updateQuantity(upc, quantity) {
-        loadXMLDoc("updateQuantity.php?upc=" + upc +"&quantity=" + quantity, function () {
+        loadXMLDoc("updateQuantity.php?upc=" + upc + "&quantity=" + quantity, function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
             }
         });
+        $('#modal-edit-item-qty').modal('hide');
     }
-
 
     function addNewItem(itemNo, model, wholesale, scanedQty) {
         var table = document.getElementById("inventoryTable");
@@ -248,6 +252,23 @@ WHERE ITEM.upc = INVENTORY.upc";
         cellSc.innerHTML = scanedQty;
     }
 
+    $(document).on("click", ".btn-edit-item", function () {
+        var upc = $(this).data('upc');
+        var model = $(this).data('model');
+        var itemQty = $(this).data('qty');
+        $("#lbl-edit-item-mes").html("<b>" + model + "</b>");
+        $("#btn-edit-item").data("upc", upc);
+        $("#new-item-qty").val(itemQty);
+        $('#modal-edit-item-qty').modal('show');
+    });
+
+    $(document).on("click", ".btn-remove-item", function () {
+        var upc = $(this).data('upc');
+        var model = $(this).data('model');
+        $("#lbl-remove-item-mes").html("Are you sure you want to remove <b>" + model + "</b> from the inventory?");
+        $("#btn-remove-item").data("upc", upc);;
+        $("#modal-remove-item").modal("show");
+    });
 
 </script>
 </body>

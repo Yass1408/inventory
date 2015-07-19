@@ -18,8 +18,24 @@ if ($conn->connect_error) {
 // Convert the query result into utf8
 $conn->query("SET character_set_results=utf8");
 
-$stmt = $conn->prepare("UPDATE inventory SET scaned_qty = ? WHERE upc = ?;
-SELECT
+$stmt = $conn->prepare("UPDATE inventory SET scaned_qty = ? WHERE upc = ?");
+
+/* Binds variables to prepared statement */
+$stmt->bind_param('is', $quantity, $upc);
+
+/* execute query */
+$stmt->execute() or die($stmt->error);
+
+
+/* free results */
+$stmt->free_result();
+
+/* close statement */
+$stmt->close();
+
+////////////////////////////////////////////////////////////
+
+$stmt = $conn->query("SELECT
     ITEM.upc,
     item_no,
     model,
@@ -29,34 +45,21 @@ FROM
     ITEM,
     INVENTORY
 WHERE
-    ITEM.upc = INVENTORY.upc;");
+    ITEM.upc = INVENTORY.upc");
 
-/* Binds variables to prepared statement */
-$stmt->bind_param('is', $quantiy, $upc);
 
-/* execute query */
-$stmt->execute() or die($stmt->error);
-
-$row = $result->fetch_assoc();
-
-while ($row = $result->fetch_assoc()) {
+while ($row = $stmt->fetch_assoc()) {
     echo "<tr>";
     echo "<td>" . $row['item_no'] . "</td>";
     echo "<td>" . $row['model'] . "</td>";
     echo "<td>" . $row['wholesale'] . "$</td>";
     echo "<td>" . $row['scaned_qty'] . "</td>";
-    echo "<td><button class='btn btn-xs' value=" . $row['upc'] . " data-toggle='modal' data-target='#edit-item-qty'><span class='glyphicon glyphicon-pencil'></span></button></td>";
-    echo '<td><button class="btn btn-danger btn-xs" value=' . $row['upc'] . ' data-title="Delete" data-toggle="modal" data-target="#remove-item" ><span class="glyphicon glyphicon-trash"></span></button></td>';
+    echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
+    echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
     echo "</tr>";
 }
 echo "</table>";
 
-
-/* free results */
-$stmt->free_result();
-
-/* close statement */
-$stmt->close();
 
 $conn->close();
 ?>
