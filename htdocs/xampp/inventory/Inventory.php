@@ -57,11 +57,9 @@
                     </div>
                     <div class="modal-body">
                         <p id="lbl-edit-item-mes"></p>
-
-                        <div class="col-md-9">
+                        <div class="col-md-9">  <!-- TODO: make it a form -->
                             <input id="new-item-qty" name="new-item-qty" type="number" placeholder="Item Quantity"
-                                   class="form-control input-md"
-                                   autocomplete="off" required="">
+                                   class="form-control input-md" autocomplete="off" required="">
                         </div>
                         <button id="btn-edit-item" type="button" class="btn btn-primary" data-upc=""
                                 onclick="updateQuantity($(this).data('upc'), $('#new-item-qty').val())">Save
@@ -87,7 +85,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button  id="btn-remove-item" type="button" class="btn btn-primary" data-upc="" onclick="removeItem($(this).data('upc'))">Yes</button>
+                        <button id="btn-remove-item" type="button" class="btn btn-primary" data-upc=""
+                                onclick="removeItem($(this).data('upc'))">Yes
+                        </button>
                     </div>
                 </div>
 
@@ -228,13 +228,21 @@ WHERE ITEM.upc = INVENTORY.upc";
         $('#modal-remove-item').modal('hide');
     }
 
+    function validateQty(number) {
+        return !number.NaN && number > 0 && number % 1 === 0;
+    }
+
     function updateQuantity(upc, quantity) {
-        loadXMLDoc("updateQuantity.php?upc=" + upc + "&quantity=" + quantity, function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
-            }
-        });
-        $('#modal-edit-item-qty').modal('hide');
+        if (validateQty(quantity)) {
+            loadXMLDoc("updateQuantity.php?upc=" + upc + "&quantity=" + quantity, function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
+                }
+            });
+            $('#modal-edit-item-qty').modal('hide');
+        } else {
+            // TODO: error message
+        }
     }
 
     function addNewItem(itemNo, model, wholesale, scanedQty) {
@@ -266,7 +274,8 @@ WHERE ITEM.upc = INVENTORY.upc";
         var upc = $(this).data('upc');
         var model = $(this).data('model');
         $("#lbl-remove-item-mes").html("Are you sure you want to remove <b>" + model + "</b> from the inventory?");
-        $("#btn-remove-item").data("upc", upc);;
+        $("#btn-remove-item").data("upc", upc);
+        ;
         $("#modal-remove-item").modal("show");
     });
 

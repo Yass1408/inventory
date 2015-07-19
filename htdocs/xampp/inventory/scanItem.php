@@ -1,4 +1,6 @@
 ﻿<?php
+require "refreshInventory.php";
+
 $upc = $_GET['upc'];
 $store_id = 1;
 
@@ -30,17 +32,7 @@ if ($stmt = $conn->prepare("CALL sp_update_inventory(?, ?)")) {
         echo "item_not_found"; // TODO: handle this error
 
     } else {
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row['item_no'] . "</td>";
-            echo "<td>" . $row['model'] . "</td>";
-            echo "<td>" . $row['wholesale'] . "$</td>";
-            echo "<td>" . $row['scaned_qty'] . "</td>";
-            echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
-            echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
-            echo "</tr>";
-        }
-        echo "</table>";
+        refreshInventory($result);
     }
     /* free results */
     $stmt->free_result();
@@ -49,4 +41,5 @@ if ($stmt = $conn->prepare("CALL sp_update_inventory(?, ?)")) {
     $stmt->close();
 }
 $conn->close();
+
 ?>
