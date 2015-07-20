@@ -42,31 +42,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Inventory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Inventory.php">
+      <file leaf-file-name="newItemForm.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newItemForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.327273">
-              <caret line="273" column="38" selection-start-line="273" selection-start-column="38" selection-end-line="273" selection-end-column="38" />
+            <state vertical-scroll-proportion="32.30909">
+              <caret line="72" column="63" selection-start-line="72" selection-start-column="63" selection-end-line="72" selection-end-column="63" />
               <folding>
-                <marker date="1437342290676" expanded="true" signature="5490:5624" placeholder="SELECT ITEM...ITEM..." />
-                <marker date="1437342290676" expanded="true" signature="5703:6050" placeholder="..." />
-                <marker date="1437342290676" expanded="true" signature="5779:6050" placeholder="..." />
-                <marker date="1437342290676" expanded="true" signature="5795:6014" placeholder="..." />
-                <marker date="1437342290676" expanded="true" signature="5808:5997" placeholder="..." />
+                <marker date="1437351247836" expanded="true" signature="1156:1220" placeholder="SELECT DISTI..item..." />
+                <marker date="1437351247836" expanded="true" signature="1270:1334" placeholder="SELECT DISTI..item..." />
+                <marker date="1437351247836" expanded="true" signature="1380:1450" placeholder="SELECT DISTI..item..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newItemForm.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newItemForm.php">
+      <file leaf-file-name="newItemProcess.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/newItemProcess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5">
-              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.7536232">
+              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
               <folding>
-                <marker date="1437086905846" expanded="true" signature="1129:1193" placeholder="SELECT DISTI..item..." />
-                <marker date="1437086905846" expanded="true" signature="1243:1307" placeholder="SELECT DISTI..item..." />
-                <marker date="1437086905846" expanded="true" signature="1353:1423" placeholder="SELECT DISTI..item..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1152" placeholder="INSERT INTO ..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1164" placeholder="INSERT INTO ..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1165" placeholder="INSERT INTO ..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1180" placeholder="INSERT INTO ..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1296" placeholder="INSERT INTO ..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1308" placeholder="INSERT INTO ..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1319" placeholder="INSERT INTO ..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1336" placeholder="INSERT INTO ..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1573" placeholder="INSERT INTO ..." />
+                <marker date="1437351192755" expanded="true" signature="1034:1732" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -75,8 +80,8 @@
       <file leaf-file-name="scanItem.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scanItem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3076923">
-              <caret line="2" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="1" column="31" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -85,21 +90,21 @@
       <file leaf-file-name="updateQuantity.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/updateQuantity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="15.576923">
-              <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="1" selection-end-column="31" />
               <folding>
-                <marker date="1437343010709" expanded="true" signature="490:539" placeholder="UPDATE inven..." />
-                <marker date="1437343010709" expanded="true" signature="856:994" placeholder="SELECT ITEM...ITEM..." />
+                <marker date="1437347345629" expanded="true" signature="490:539" placeholder="UPDATE inven..." />
+                <marker date="1437347345629" expanded="true" signature="856:994" placeholder="SELECT ITEM...ITEM..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="removeItem.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="removeItem.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/removeItem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05851979">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.807693">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding>
                 <marker date="1437342989935" expanded="true" signature="459:494" placeholder="DELETE FROM ..." />
                 <marker date="1437342989935" expanded="true" signature="799:937" placeholder="SELECT ITEM...ITEM..." />
@@ -149,11 +154,13 @@
         <option value="$PROJECT_DIR$/js/inventory.js" />
         <option value="$PROJECT_DIR$/editQuantity.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/56258d88-1f95-4a88-87ca-e7e47b6eac4f/console_1.sql" />
-        <option value="$PROJECT_DIR$/Inventory.php" />
         <option value="$PROJECT_DIR$/refreshInventory.php" />
         <option value="$PROJECT_DIR$/scanItem.php" />
         <option value="$PROJECT_DIR$/removeItem.php" />
         <option value="$PROJECT_DIR$/updateQuantity.php" />
+        <option value="$PROJECT_DIR$/Inventory.php" />
+        <option value="$PROJECT_DIR$/newItemProcess.php" />
+        <option value="$PROJECT_DIR$/newItemForm.php" />
       </list>
     </option>
   </component>
@@ -328,16 +335,16 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Inventory.php">
+    <entry file="file://$PROJECT_DIR$/inventory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="85" column="70" selection-start-line="85" selection-start-column="70" selection-end-line="85" selection-end-column="70" />
           <folding>
-            <marker date="1437342290676" expanded="true" signature="5490:5624" placeholder="SELECT ITEM...ITEM..." />
-            <marker date="1437342290676" expanded="true" signature="5703:6050" placeholder="..." />
-            <marker date="1437342290676" expanded="true" signature="5779:6050" placeholder="..." />
-            <marker date="1437342290676" expanded="true" signature="5795:6014" placeholder="..." />
-            <marker date="1437342290676" expanded="true" signature="5808:5997" placeholder="..." />
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="SELECT ITEM...ITEM..." />
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -366,8 +373,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <marker date="1437343010709" expanded="true" signature="490:539" placeholder="UPDATE inven..." />
-            <marker date="1437343010709" expanded="true" signature="856:994" placeholder="SELECT ITEM...ITEM..." />
+            <marker date="1437347345629" expanded="true" signature="490:539" placeholder="UPDATE inven..." />
+            <marker date="1437347345629" expanded="true" signature="856:994" placeholder="SELECT ITEM...ITEM..." />
           </folding>
         </state>
       </provider>
@@ -435,32 +442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.327273">
-          <caret line="273" column="38" selection-start-line="273" selection-start-column="38" selection-end-line="273" selection-end-column="38" />
-          <folding>
-            <marker date="1437342290676" expanded="true" signature="5490:5624" placeholder="SELECT ITEM...ITEM..." />
-            <marker date="1437342290676" expanded="true" signature="5703:6050" placeholder="..." />
-            <marker date="1437342290676" expanded="true" signature="5779:6050" placeholder="..." />
-            <marker date="1437342290676" expanded="true" signature="5795:6014" placeholder="..." />
-            <marker date="1437342290676" expanded="true" signature="5808:5997" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newItemForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-          <folding>
-            <marker date="1437086905846" expanded="true" signature="1129:1193" placeholder="SELECT DISTI..item..." />
-            <marker date="1437086905846" expanded="true" signature="1243:1307" placeholder="SELECT DISTI..item..." />
-            <marker date="1437086905846" expanded="true" signature="1353:1423" placeholder="SELECT DISTI..item..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/refreshInventory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -469,32 +450,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/updateQuantity.php">
+    <entry file="file://$PROJECT_DIR$/scanItem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.576923">
-          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-          <folding>
-            <marker date="1437343010709" expanded="true" signature="490:539" placeholder="UPDATE inven..." />
-            <marker date="1437343010709" expanded="true" signature="856:994" placeholder="SELECT ITEM...ITEM..." />
-          </folding>
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="1" column="31" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scanItem.php">
+    <entry file="file://$PROJECT_DIR$/updateQuantity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923">
-          <caret line="2" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="1" selection-end-column="31" />
+          <folding>
+            <marker date="1437347345629" expanded="true" signature="490:539" placeholder="UPDATE inven..." />
+            <marker date="1437347345629" expanded="true" signature="856:994" placeholder="SELECT ITEM...ITEM..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/removeItem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05851979">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding>
             <marker date="1437342989935" expanded="true" signature="459:494" placeholder="DELETE FROM ..." />
             <marker date="1437342989935" expanded="true" signature="799:937" placeholder="SELECT ITEM...ITEM..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="42" column="160" selection-start-line="42" selection-start-column="160" selection-end-line="42" selection-end-column="160" />
+          <folding>
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="SELECT ITEM...ITEM..." />
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437348292581" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newItemForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="32.30909">
+          <caret line="72" column="63" selection-start-line="72" selection-start-column="63" selection-end-line="72" selection-end-column="63" />
+          <folding>
+            <marker date="1437351247836" expanded="true" signature="1156:1220" placeholder="SELECT DISTI..item..." />
+            <marker date="1437351247836" expanded="true" signature="1270:1334" placeholder="SELECT DISTI..item..." />
+            <marker date="1437351247836" expanded="true" signature="1380:1450" placeholder="SELECT DISTI..item..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newItemProcess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7536232">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+          <folding>
+            <marker date="1437351192755" expanded="true" signature="1034:1152" placeholder="INSERT INTO ..." />
+            <marker date="1437351192755" expanded="true" signature="1034:1164" placeholder="INSERT INTO ..." />
+            <marker date="1437351192755" expanded="true" signature="1034:1165" placeholder="INSERT INTO ..." />
+            <marker date="1437351192755" expanded="true" signature="1034:1180" placeholder="INSERT INTO ..." />
+            <marker date="1437351192755" expanded="true" signature="1034:1296" placeholder="INSERT INTO ..." />
+            <marker date="1437351192755" expanded="true" signature="1034:1308" placeholder="INSERT INTO ..." />
+            <marker date="1437351192755" expanded="true" signature="1034:1319" placeholder="INSERT INTO ..." />
+            <marker date="1437351192755" expanded="true" signature="1034:1336" placeholder="INSERT INTO ..." />
+            <marker date="1437351192755" expanded="true" signature="1034:1573" placeholder="INSERT INTO ..." />
+            <marker date="1437351192755" expanded="true" signature="1034:1732" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>

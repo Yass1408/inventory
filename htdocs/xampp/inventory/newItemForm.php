@@ -34,11 +34,11 @@ function getOption($sql, $required = false)
     echo '<option value="0">&nbsp;</option>';
     $nbOption = 1;
     while ($row = $result->fetch_array()) {
-        echo '<option value="' . $nbOption . '">' . $row[0] . '</option>';
+        echo '<option value="' . $row[0] . '">' . $row[0] . '</option>'; // TODO give each item a value
         $nbOption++;
     }
     if (!$required) {
-        echo '<option value="' . $nbOption . '">Other</option>';
+        echo '<option value="' . $row[0] . '">Other</option>';
     }
 }
 
@@ -58,7 +58,7 @@ function getPackage()
 }
 
 ?>
-<form class="form-horizontal" id="new-item-form">
+<form class="form-horizontal" id="new-item-form" method="post" action="<?php echo htmlspecialchars('newItemProcess.php?upc='.$upc); ?>">
     <fieldset>
 
         <!-- Form Name -->
@@ -70,7 +70,7 @@ function getPackage()
 
             <div class="col-md-4">
                 <input id="txtFldItemNo" name="txtFldItemNo" type="text" placeholder="" class="form-control input-md"
-                       autocomplete="off" required="">
+                       autocomplete="off" required="" autofocus>
             </div>
         </div>
 
@@ -190,7 +190,7 @@ function getPackage()
             <label class="col-md-4 control-label" for="btnNewItem">Save Item</label>
 
             <div class="col-md-4">
-                <button id="btnNewItem" name="btnNewItem" class="btn btn-primary">Save</button>
+                <button id="btnNewItem" name="btnNewItem" class="btn btn-primary submit">Save</button>
             </div>
         </div>
 

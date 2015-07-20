@@ -34,11 +34,13 @@
                         <h4 class="modal-title">Item Not Found!</h4>
                     </div>
                     <div class="modal-body">
+                        <p id="lbl-not-found-item"></p>
+
                         <p>This item is not in de database.<br>Would you like to add it?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary">Yes</button>
+                        <button type="button" class="btn btn-primary" onclick="insertNewItem()">Yes</button> <!--TODO: diseable backgound. See modal options -->
                     </div>
                 </div>
 
@@ -57,6 +59,7 @@
                     </div>
                     <div class="modal-body">
                         <p id="lbl-edit-item-mes"></p>
+
                         <div class="col-md-9">  <!-- TODO: make it a form -->
                             <input id="new-item-qty" name="new-item-qty" type="number" placeholder="Item Quantity"
                                    class="form-control input-md" autocomplete="off" required="">
@@ -208,7 +211,8 @@ WHERE ITEM.upc = INVENTORY.upc";
             loadXMLDoc("scanItem.php?upc=" + upc, function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     if (xmlhttp.responseText == "item_not_found") { //TODO create a special error
-                        $('#modal-new-item').modal();
+                        $('#lbl-not-found-item').html(upc);
+                        $('#modal-new-item').modal("show");
                     } else {
                         document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
                     }
@@ -217,6 +221,10 @@ WHERE ITEM.upc = INVENTORY.upc";
             // reset input for next scan
             $("#txtFldupc").val("");
         }
+    }
+
+    function insertNewItem(){
+        window.location.href = 'newItemForm.php?upc=' + $("#lbl-not-found-item").html();
     }
 
     function removeItem(upc) {
