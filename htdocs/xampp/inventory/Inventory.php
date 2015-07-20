@@ -20,7 +20,7 @@
 <div class="container">
     <div class="row">
 
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-new-item">Open Modal
+        <button type="button" class="btn btn-info btn-lg" onclick="printInventory()">Print Inventory
         </button>
 
         <!-- Item Not Found Modal -->
@@ -223,6 +223,9 @@ WHERE ITEM.upc = INVENTORY.upc";
         }
     }
 
+    function printInventory(){
+        window.location.href = 'printInventory.php';
+    }
     function insertNewItem(){
         window.location.href = 'newItemForm.php?upc=' + $("#lbl-not-found-item").html();
     }

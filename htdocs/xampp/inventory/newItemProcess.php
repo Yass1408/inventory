@@ -28,14 +28,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt = "INSERT INTO item (upc, item_no, model, brand, color, feature, sheath, package, pack_qty, msrp, ump, wholesale)
-VALUE ('". $upc ."','". $itemNo ."','". $model ."','". $brand ."','". $color ."','". $feature ."','". $sheath ."','". $package ."','". $packageQty ."',". $msrp .",". $ump .",". $wholesale .")";
+    $stmt = "INSERT INTO item (upc, item_no, model, brand, color, feature, sheath, package, pack_qty, msrp, ump, wholesale) VALUE ('" . $upc . "','" . $itemNo . "','" . $model . "','" . $brand . "','" . $color . "','" . $feature . "','" . $sheath . "','" . $package . "','" . $packageQty . "'," . $msrp . "," . $ump . "," . $wholesale . ")";
 
-    if ($conn->query($stmt) === TRUE) {
-        header("location:inventory.php", true, 303);
-    } else {
+    if (!$conn->query($stmt)) {
         echo "Error: " . $stmt . "<br>" . $conn->error;
     }
+
+    $stmt = "INSERT INTO inventory (upc, store_id, scaned_qty) VALUE ('". $upc ."', 1, 1)"; // TODO dont hard code store_id
+
+    if (!$conn->query($stmt)) {
+        echo "Error: " . $stmt . "<br>" . $conn->error;
+    }
+    
+    header("location:inventory.php", true, 303);
 
 // ENDIF
 }
@@ -45,10 +50,11 @@ function test_input($data)
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
-    if (empty($data)){
+    if (empty($data)) {
         $data = 0;
     }
     return $data;
 }
- $conn->close();
+
+$conn->close();
 ?>
