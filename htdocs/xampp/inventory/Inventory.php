@@ -20,7 +20,7 @@
 <div class="container">
     <div class="row">
 
-        <button type="button" class="btn btn-info btn-lg" onclick="printInventory()">Print Inventory
+        <button type="button" class="btn btn-info" onclick="printInventory()">Print Inventory
         </button>
 
         <!-- Item Not Found Modal -->
@@ -40,7 +40,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary" onclick="insertNewItem()">Yes</button> <!--TODO: diseable backgound. See modal options -->
+                        <button type="button" class="btn btn-primary" onclick="insertNewItem()">Yes</button>
+                        <!--TODO: diseable backgound. See modal options -->
                     </div>
                 </div>
 
@@ -97,7 +98,6 @@
             </div>
         </div>
 
-
         <div class="col-md-3">
             <form action="#" method="get">
                 <div class="input-group">
@@ -110,72 +110,63 @@
                 </div>
             </form>
         </div>
-        <?php
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "eos";
+        <div class="col-md-8">
+            <table id="inventoryTable" class="table table-list-search table-hover">
+                <thead>
+                <tr>
+                    <th>Item Number</th>
+                    <th>Model</th>
+                    <th>Wholesale</th>
+                    <th>Quantity</th>
+                    <th>Edit</th>
+                    <th>Remove</th>
+                </tr>
+                </thead>
+                <tbody id="inventory-data">
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+                <?php
 
-        // Convert the query result into utf8
-        $conn->query("SET character_set_results=utf8");
-        /*
-        mb_language('uni');
-        mb_internal_encoding('UTF-8');
-        $conn->query("set names 'utf8'");
-        */
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "eos";
 
-        $sql = "
-SELECT
-    ITEM.upc,
-    item_no,
-    model,
-    wholesale,
-    scaned_qty
-FROM
-    ITEM,
-    INVENTORY
-WHERE ITEM.upc = INVENTORY.upc";
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
 
-        $result = $conn->query($sql);
+                // Convert the query result into utf8
+                $conn->query("SET character_set_results=utf8");
+                /*
+                mb_language('uni');
+                mb_internal_encoding('UTF-8');
+                $conn->query("set names 'utf8'");
+                */
 
-        echo '
-<div class="col-md-8">
-    <table id="inventoryTable" class="table table-list-search table-hover">
-        <thead>
-        <tr>
-            <th>Item Number</th>
-            <th>Model</th>
-            <th>Wholesale</th>
-            <th>Quantity</th>
-            <th>Edit</th>
-            <th>Remove</th>
-        </tr>
-        </thead>
-        <tbody id="inventory-data">';
+                $sql = "SELECT ITEM.upc, item_no, model, wholesale, scaned_qty FROM ITEM, INVENTORY WHERE ITEM.upc = INVENTORY.upc";
 
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row['item_no'] . "</td>";
-            echo "<td>" . $row['model'] . "</td>";
-            echo "<td>" . $row['wholesale'] . "$</td>";
-            echo "<td>" . $row['scaned_qty'] . "</td>";
-            echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
-            echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
-            echo "</tr>";
-        }
-        echo "</tbody></table></div>";
+                $result = $conn->query($sql);
 
-        $conn->close();
-        ?>
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row['item_no'] . "</td>";
+                    echo "<td>" . $row['model'] . "</td>";
+                    echo "<td>" . $row['wholesale'] . "$</td>";
+                    echo "<td>" . $row['scaned_qty'] . "</td>";
+                    echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
+                    echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
+                    echo "</tr>";
+                }
 
+                $conn->close();
+                ?>
+                </tbody>
+            </table>
+        </div>
         <div class="col-md-3">
             <input class="form-control" id="txtFldupc" name="upc" autofocus autocomplete="off"
                    placeholder="Scan UPC here"
@@ -223,10 +214,10 @@ WHERE ITEM.upc = INVENTORY.upc";
         }
     }
 
-    function printInventory(){
+    function printInventory() {
         window.location.href = 'printInventory.php';
     }
-    function insertNewItem(){
+    function insertNewItem() {
         window.location.href = 'newItemForm.php?upc=' + $("#lbl-not-found-item").html();
     }
 
@@ -254,21 +245,6 @@ WHERE ITEM.upc = INVENTORY.upc";
         } else {
             // TODO: error message
         }
-    }
-
-    function addNewItem(itemNo, model, wholesale, scanedQty) {
-        var table = document.getElementById("inventoryTable");
-        var row = table.insertRow(-1);
-
-        var cellNo = row.insertCell(0);
-        var cellMo = row.insertCell(1);
-        var cellWh = row.insertCell(2);
-        var cellSc = row.insertCell(3);
-
-        cellNo.innerHTML = itemNo;
-        cellMo.innerHTML = model;
-        cellWh.innerHTML = wholesale;
-        cellSc.innerHTML = scanedQty;
     }
 
     $(document).on("click", ".btn-edit-item", function () {

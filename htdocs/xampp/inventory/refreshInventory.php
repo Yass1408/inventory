@@ -12,7 +12,6 @@ function refreshInventory($result)
         echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
         echo "</tr>";
     }
-    echo "</table>";
 }
 
 ?>

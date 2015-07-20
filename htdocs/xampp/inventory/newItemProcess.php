@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$conn->query($stmt)) {
         echo "Error: " . $stmt . "<br>" . $conn->error;
     }
-    
+
     header("location:inventory.php", true, 303);
 
 // ENDIF
