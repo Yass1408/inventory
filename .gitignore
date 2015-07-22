@@ -6,3 +6,7 @@
 !/htdocs/xampp
 /htdocs/xampp/*
 !/htdocs/xampp/inventory
+/htdocs/xampp/inventory/.idea
+/htdocs/xampp/inventory/.metadata
+/htdocs/xampp/inventory/.idea/*
+/htdocs/xampp/inventory/.metadata/*

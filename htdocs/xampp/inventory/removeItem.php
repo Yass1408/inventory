@@ -51,4 +51,3 @@ WHERE
 refreshInventory($stmt);
 
 $conn->close();
-?>

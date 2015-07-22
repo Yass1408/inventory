@@ -25,7 +25,7 @@ if ($stmt = $conn->prepare("CALL sp_update_inventory(?, ?)")) {
     $stmt->bind_param('si', $upc, $store_id);
 
     /* execute query */
-    $stmt->execute();
+    $stmt->execute() or die($stmt->error);
 
     if (!$result = $stmt->get_result()) {
         //the query return NULL
@@ -41,5 +41,3 @@ if ($stmt = $conn->prepare("CALL sp_update_inventory(?, ?)")) {
     $stmt->close();
 }
 $conn->close();
-
-?>
