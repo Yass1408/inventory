@@ -19,25 +19,37 @@ if ($conn->connect_error) {
 // Convert the query result into utf8
 $conn->query("SET character_set_results=utf8");
 
-if ($stmt = $conn->prepare("CALL sp_update_inventory(?, ?)")) {
+$stmt = $conn->prepare("INSERT INTO INVENTORY (upc, store_id, scaned_qty) VALUES ((SELECT upc FROM ITEM WHERE upc = ?), ?, 1) ON DUPLICATE KEY UPDATE scaned_qty = scaned_qty + 1");
 
-    /* Binds variables to prepared statement */
-    $stmt->bind_param('si', $upc, $store_id);
+/* Binds variables to prepared statement */
+$stmt->bind_param('si', $upc, $store_id);
 
-    /* execute query */
-    $stmt->execute() or die($stmt->error);
-
-    if (!$result = $stmt->get_result()) {
-        //the query return NULL
-        echo "item_not_found"; // TODO: handle this error
-
-    } else {
-        refreshInventory($result);
-    }
+/* execute query */
+if (!$stmt->execute()) {
+    echo 'ITEM_NOT_FOUND_EXCEPTION';
+    die;
+} else {
     /* free results */
     $stmt->free_result();
-
-    /* close statement */
-    $stmt->close();
 }
+
+/* close statement */
+$stmt->close();
+
+////////////////////////////////////////////////////////////
+
+$stmt = $conn->query("SELECT
+    ITEM.upc,
+    item_no,
+    model,
+    wholesale,
+    scaned_qty
+FROM
+    ITEM,
+    INVENTORY
+WHERE
+    ITEM.upc = INVENTORY.upc");
+
+refreshInventory($stmt);
+
 $conn->close();

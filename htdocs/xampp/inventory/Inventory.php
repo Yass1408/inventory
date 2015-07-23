@@ -201,7 +201,7 @@
             // add the scanned item in the inventory
             loadXMLDoc("scanItem.php?upc=" + upc, function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    if (xmlhttp.responseText == "item_not_found") { //TODO create a special error
+                    if (xmlhttp.responseText == "ITEM_NOT_FOUND_EXCEPTION") {
                         $('#lbl-not-found-item').html(upc);
                         $('#modal-new-item').modal("show");
                     } else {
