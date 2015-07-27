@@ -36,20 +36,7 @@ if (!$stmt->execute()) {
 /* close statement */
 $stmt->close();
 
-////////////////////////////////////////////////////////////
 
-$stmt = $conn->query("SELECT
-    ITEM.upc,
-    item_no,
-    model,
-    wholesale,
-    scaned_qty
-FROM
-    ITEM,
-    INVENTORY
-WHERE
-    ITEM.upc = INVENTORY.upc");
-
-refreshInventory($stmt);
+refreshInventory($conn);
 
 $conn->close();

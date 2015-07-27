@@ -1,7 +1,20 @@
 <?php
 
-function refreshInventory($result)
+function refreshInventory($conn)
 {
+    $result = $conn->query("
+    SELECT
+        ITEM.upc,
+        item_no,
+        model,
+        wholesale,
+        scaned_qty
+    FROM
+        ITEM,
+        INVENTORY
+    WHERE
+        ITEM.upc = INVENTORY.upc");
+
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['item_no'] . "</td>";
