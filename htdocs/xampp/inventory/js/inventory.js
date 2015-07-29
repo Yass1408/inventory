@@ -17,6 +17,8 @@ $(document).ready(function () {
     function validateUpc(upc) {
         if (upc.length == 11) { // todo ne tient pas compte des UPC a 10 digits
             return '0' + upc;
+        } else {
+            return upc;
         }// todo regular expression
     }
 
@@ -24,10 +26,19 @@ $(document).ready(function () {
         return !number.NaN && number > 0 && number % 1 === 0;
     }
 
-    function scanItem(key, upc) {
+    // TODO --> enter upc from document $(document).keypress(function (key) {
+    $("#txtFldupc").keypress(function (key) {
+        var txtFldUpc = $("#txtFldupc");
+        /*
+        if (!txtFldUpc.is(":focus") && !$("#item-search").is(":focus")) {
+            txtFldUpc.focus();
+            txtFldUpc.val(String.fromCharCode(key.which));
+        }
+        */
+        var upc = txtFldUpc.val();
         var x = key.which || key.keyCode;
-
         // if return is pressed
+
         if (x == 13) {
             upc = validateUpc(upc);
 
@@ -43,30 +54,31 @@ $(document).ready(function () {
                 }
             });
             // reset input for next scan
-            $("#txtFldupc").val("");
+            $(this).val("");
         }
-    }
+    });
 
-    function printInventory() {
+    $("#btn-printInventory").click(function () {
         window.location.href = 'printInventory.php';
-    }
+    });
 
-    function insertNewItem() {
+    $("#btn-insertNewItem").click(function insertNewItem() {
         window.location.href = 'newItemForm.php?upc=' + $("#lbl-not-found-item").html();
-    }
+    });
 
-    function removeItem(upc) {
-        loadXMLDoc("removeItem.php?upc=" + upc, function () {
+    $("#btn-remove-item").click(function () {
+        loadXMLDoc("removeItem.php?upc=" + $(this).data('upc'), function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
             }
         });
         $('#modal-remove-item').modal('hide');
-    }
+    });
 
-    function updateQuantity(upc, quantity) {
-        if (validateQty(quantity)) {
-            loadXMLDoc("updateQuantity.php?upc=" + upc + "&quantity=" + quantity, function () {
+    $("#btn-edit-item").click(function () {
+        var newQty = $('#new-item-qty').val();
+        if (validateQty(newQty)) {
+            loadXMLDoc("updateQuantity.php?upc=" + $(this).data('upc') + "&quantity=" + newQty, function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
                 }
@@ -75,12 +87,12 @@ $(document).ready(function () {
         } else {
             // TODO: error message
         }
-    }
+    });
 
 // Update item quantity button
     $(document).on("click", ".btn-edit-item", function () {
         var upc = $(this).data('upc');
-        var model = $(this).data('model');
+        var model = $(this).data('model'); // TODO bug avec l'affichage du model dans la boite de dialogue
         var itemQty = $(this).data('qty');
         $("#lbl-edit-item-mes").html("<b>" + model + "</b>");
         $("#btn-edit-item").data("upc", upc);
@@ -92,15 +104,17 @@ $(document).ready(function () {
     $(document).on("click", ".btn-remove-item", function () {
         var upc = $(this).data('upc');
         var model = $(this).data('model');
-        $("#lbl-remove-item-mes").html("Are you sure you want to remove <b>" + model + "</b> from the inventory?");
+        $("#lbl-remove-item-mes").html("Are you sure you want to remove <br><b>" + model + "</b></br> from the inventory?");
         $("#btn-remove-item").data("upc", upc);
         $("#modal-remove-item").modal("show");
     });
 
     //$(document).on("click", "#btn-printInventory", printInventory());
-    $(document).onclick(function(){alert(ds);});
-    $(document).on("click", "#btn-edit-item", updateQuantity($(this).data('upc'), $('#new-item-qty').val()));
-    $(document).on("click", "#btn-remove-item", removeItem($(this).data('upc')));
+    //$("#btn-insertNewItem").click(function () {
+    //    alert('d');
+    //});
+    //$(document).on("click", "#btn-edit-item", updateQuantity($('#new-item-qty').val()));
+    //$(document).on("click", "#btn-remove-item", removeItem($(this).data('upc')));
 
-    $(document).keypress(scanItem(event, this.value));
+
 });

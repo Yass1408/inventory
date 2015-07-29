@@ -35,7 +35,7 @@
         // Convert the query result into utf8
         $conn->query("SET character_set_results=utf8");
 
-        $stmt = $conn->query("SELECT item.upc, item_no, model, manufacture, desription, inventory.scaned_qty FROM item, inventory WHERE item.upc = inventory.upc");
+        $stmt = $conn->query("SELECT item.upc, item_no, model, manufacture, description, inventory.scaned_qty FROM item, inventory WHERE item.upc = inventory.upc");
 
         while ($row = $stmt->fetch_assoc()) {
             echo "<tr>";

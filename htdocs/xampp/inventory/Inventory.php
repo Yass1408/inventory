@@ -6,8 +6,6 @@
     <link rel="stylesheet" type="text/css" href="css/inventory.css">
     <script src="js/jquery-1.11.3.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
-    <script src="js/inventorySearch.js"></script>
-    <script src="js/inventory.js"></script>
 
     <!-- FOR PRODUCTION
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,24 +95,25 @@
         </div>
 
         <div class="col-md-3">
-            <form action="#" method="get">
                 <div class="input-group">
-                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-                    <input class="form-control" id="item-search" name="q" placeholder="Search for" required>
+                    <input class="form-control" id="item-search" name="q" placeholder="Search for" required autocomplete="off">
+                    <!--
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>
                         </button>
                     </span>
+                    -->
                 </div>
-            </form>
         </div>
 
         <div class="col-md-8">
-            <table id="inventoryTable" class="table table-list-search table-hover">
+            <table id="inventoryTable" class="table table-list-search table-hover"> <!-- TODO table hover  do not work-->
                 <thead>
                 <tr>
                     <th>Item Number</th>
                     <th>Model</th>
+                    <th>Description</th>
+                    <th>Manufacture</th>
                     <th>Quantity</th>
                     <th>Edit</th>
                     <th>Remove</th>
@@ -144,7 +143,7 @@
                 $conn->query("set names 'utf8'");
                 */
 
-                $sql = "SELECT ITEM.upc, item_no, model, scaned_qty FROM ITEM, INVENTORY WHERE ITEM.upc = INVENTORY.upc";
+                $sql = "SELECT ITEM.upc, item_no, model, manufacture, description, scaned_qty FROM ITEM, INVENTORY WHERE ITEM.upc = INVENTORY.upc";
 
                 $result = $conn->query($sql);
 
@@ -152,12 +151,13 @@
                     echo "<tr>";
                     echo "<td>" . $row['item_no'] . "</td>";
                     echo "<td>" . $row['model'] . "</td>";
+                    echo "<td>" . $row['description'] . "</td>";
+                    echo "<td>" . $row['manufacture'] . "</td>";
                     echo "<td>" . $row['scaned_qty'] . "</td>";
-                    echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
-                    echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
+                    echo "<td><button class='btn btn-xs btn-edit-item' data-upc='" . $row['upc'] . "' data-model='" . $row['model'] . "' data-qty='" . $row['scaned_qty'] . "' data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
+                    echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc='" . $row['upc'] . "' data-model='" . $row['model'] . "' data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
                     echo "</tr>";
                 }
-
                 $conn->close();
                 ?>
                 </tbody>
@@ -169,5 +169,7 @@
     </div>
 </div>
 
+<script src="js/inventorySearch.js"></script>
+<script src="js/inventory.js"></script>
 </body>
 </html>
