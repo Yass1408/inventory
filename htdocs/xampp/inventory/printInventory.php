@@ -14,23 +14,19 @@
             <th>Upc</th>
             <th>Item Number</th>
             <th>Model</th>
-            <th>Brand</th>
-            <th>Color</th>
-            <th>Package</th>
-            <th>Package <br> Quantity</th>
-            <th>Wholesale</th>
+            <th>Manufacture</th>
             <th>Quantity</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        $servername = "localhost";
+        $serverName = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "eos";
+        $dbName = "eos";
 
         // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        $conn = new mysqli($serverName, $username, $password, $dbName);
         // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -39,18 +35,14 @@
         // Convert the query result into utf8
         $conn->query("SET character_set_results=utf8");
 
-        $stmt = $conn->query("SELECT item.upc, item_no, model, brand, color, package, pack_qty, wholesale, inventory.scaned_qty FROM item, inventory WHERE item.upc = inventory.upc");
+        $stmt = $conn->query("SELECT item.upc, item_no, model, manufacture, desription, inventory.scaned_qty FROM item, inventory WHERE item.upc = inventory.upc");
 
         while ($row = $stmt->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . $row['upc'] . "</td>";
             echo "<td>" . $row['item_no'] . "</td>";
-            echo "<td>" . $row['model'] . "</td>";
-            echo "<td>" . $row['brand'] . "</td>";
-            echo "<td>" . $row['color'] . "</td>";
-            echo "<td>" . $row['package'] . "</td>";
-            echo "<td>" . $row['pack_qty'] . "</td>";
-            echo "<td>" . $row['wholesale'] . "$</td>";
+            echo "<td>" . $row['manufacture'] . "</td>";
+            echo "<td>" . $row['description'] . "</td>";
             echo "<td>" . $row['scaned_qty'] . "</td>";
             echo "</tr>";
         }

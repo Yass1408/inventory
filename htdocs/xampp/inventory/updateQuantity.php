@@ -34,6 +34,7 @@ $stmt->free_result();
 /* close statement */
 $stmt->close();
 
+
 refreshInventory($conn);
 
 $conn->close();

@@ -11,13 +11,13 @@
 <?php
 $upc = $_GET['upc'];
 
-$servername = "localhost";
+$serverName = "localhost";
 $username = "root";
 $password = "";
-$dbname = "eos";
-
+$dbName = "eos";
+// todo validate upc length
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($serverName, $username, $password, $dbName);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -42,29 +42,21 @@ function getOption($sql, $required = false)
     }
 }
 
-function getBrand()
+function getManufacture()
 {
-    getOption("SELECT DISTINCT brand FROM item where brand != '' ORDER BY brand", true);
+    getOption("SELECT DISTINCT manufacture FROM item WHERE manufacture != '' ORDER BY manufacture", true);
 }
 
-function getColor()
-{
-    getOption("SELECT DISTINCT color FROM item where color != '' ORDER BY color");
-}
-
-function getPackage()
-{
-    getOption("SELECT DISTINCT package FROM item where package != '' ORDER BY package");
-}
 
 ?>
-<form class="form-horizontal" id="new-item-form" method="post" action="<?php echo htmlspecialchars('newItemProcess.php?upc='.$upc); ?>">
+<form class="form-horizontal" id="new-item-form" method="post"
+      action="<?php echo htmlspecialchars('newItemProcess.php?upc=' . $upc); ?>">
     <fieldset>
 
         <!-- Form Name -->
         <legend>Insert new Item <br><?php echo $upc ?></legend>
 
-        <!-- Text input-->
+        <!-- Product Number Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="txtFldItemNo">Product Number</label>
 
@@ -74,7 +66,7 @@ function getPackage()
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Model Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="txtFldModel">Model</label>
 
@@ -85,106 +77,28 @@ function getPackage()
             </div>
         </div>
 
-        <!-- Select Basic -->
+        <!-- Manufacture Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="selectBrand">Brand</label>
+            <label class="col-md-4 control-label" for="selectManufacture">manufacture</label>
 
             <div class="col-md-4">
-                <select id="selectBrand" name="selectBrand" class="form-control">
-                    <?php getBrand() ?>
-                </select>
-            </div>
-        </div>
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="selectColor">Color</label>
-
-            <div class="col-md-4">
-                <select id="selectColor" name="selectColor" class="form-control">
-                    <?php getColor() ?>
+                <select id="selectManufacture" name="selectManufacture" class="form-control">
+                    <?php getManufacture() ?>
                 </select>
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Description Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="txtFldFeature">Feature</label>
+            <label class="col-md-4 control-label" for="txtDescription">Description</label>
 
             <div class="col-md-4">
-                <input id="txtFldFeature" name="txtFldFeature" type="text" placeholder=""
-                       class="form-control input-md"
-                       autocomplete="off">
+                <input id="txtFldDescription" name="txtFldDescription" type="text" placeholder="" class="form-control input-md"
+                       autocomplete="off" required="">
 
             </div>
         </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="txtFldSheath">Sheath</label>
-
-            <div class="col-md-4">
-                <input id="txtFldSheath" name="txtFldSheath" type="text" placeholder=""
-                       class="form-control input-md"
-                       autocomplete="off">
-
-            </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="selectPackage">Package</label>
-
-            <div class="col-md-4">
-                <select id="selectPackage" name="selectPackage" class="form-control">
-                    <?php getPackage() ?>
-                </select>
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="txtFldPackQty">Package Quantity</label>
-
-            <div class="col-md-4">
-                <input id="txtFldPackQty" name="txtFldPackQty" type="text" placeholder=""
-                       class="form-control input-md"
-                       autocomplete="off">
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="txtFldMsrp">MSRP</label>
-
-            <div class="col-md-4">
-                <input id="txtFldMsrp" name="txtFldMsrp" type="text" placeholder="" class="form-control input-md"
-                       autocomplete="off">
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="txtFldUmp">UMP</label>
-
-            <div class="col-md-4">
-                <input id="txtFldUmp" name="txtFldUmp" type="text" placeholder="" class="form-control input-md"
-                       autocomplete="off">
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="txtFldWholesale">Wholesale</label>
-
-            <div class="col-md-4">
-                <input id="txtFldWholesale" name="txtFldWholesale" type="text" placeholder=""
-                       class="form-control input-md" autocomplete="off">
-
-            </div>
-        </div>
         <!-- Button -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="btnNewItem">Save Item</label>

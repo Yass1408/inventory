@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/inventory.css">
     <script src="js/jquery-1.11.3.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/inventorySearch.js"></script>
     <script src="js/inventory.js"></script>
 
     <!-- FOR PRODUCTION
@@ -20,8 +21,7 @@
 <div class="container">
     <div class="row">
 
-        <button type="button" class="btn btn-info" onclick="printInventory()">Print Inventory
-        </button>
+        <button type="button" class="btn btn-info" id="btn-printInventory">Print Inventory</button>
 
         <!-- Item Not Found Modal -->
         <div id="modal-new-item" class="modal fade" role="dialog">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary" onclick="insertNewItem()">Yes</button>
+                        <button type="button" class="btn btn-primary" id="btn-insertNewItem">Yes</button>
                         <!--TODO: diseable backgound. See modal options -->
                     </div>
                 </div>
@@ -65,8 +65,7 @@
                             <input id="new-item-qty" name="new-item-qty" type="number" placeholder="Item Quantity"
                                    class="form-control input-md" autocomplete="off" required="">
                         </div>
-                        <button id="btn-edit-item" type="button" class="btn btn-primary" data-upc=""
-                                onclick="updateQuantity($(this).data('upc'), $('#new-item-qty').val())">Save
+                        <button id="btn-edit-item" type="button" class="btn btn-primary" data-upc="">Save
                         </button>
                     </div>
                 </div>
@@ -89,8 +88,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button id="btn-remove-item" type="button" class="btn btn-primary" data-upc=""
-                                onclick="removeItem($(this).data('upc'))">Yes
+                        <button id="btn-remove-item" type="button" class="btn btn-primary" data-upc="">Yes
                         </button>
                     </div>
                 </div>
@@ -117,7 +115,6 @@
                 <tr>
                     <th>Item Number</th>
                     <th>Model</th>
-                    <th>Wholesale</th>
                     <th>Quantity</th>
                     <th>Edit</th>
                     <th>Remove</th>
@@ -127,13 +124,13 @@
 
                 <?php
 
-                $servername = "localhost";
+                $serverName = "localhost";
                 $username = "root";
                 $password = "";
-                $dbname = "eos";
+                $dbName = "eos";
 
                 // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
+                $conn = new mysqli($serverName, $username, $password, $dbName);
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
@@ -147,7 +144,7 @@
                 $conn->query("set names 'utf8'");
                 */
 
-                $sql = "SELECT ITEM.upc, item_no, model, wholesale, scaned_qty FROM ITEM, INVENTORY WHERE ITEM.upc = INVENTORY.upc";
+                $sql = "SELECT ITEM.upc, item_no, model, scaned_qty FROM ITEM, INVENTORY WHERE ITEM.upc = INVENTORY.upc";
 
                 $result = $conn->query($sql);
 
@@ -155,7 +152,6 @@
                     echo "<tr>";
                     echo "<td>" . $row['item_no'] . "</td>";
                     echo "<td>" . $row['model'] . "</td>";
-                    echo "<td>" . $row['wholesale'] . "$</td>";
                     echo "<td>" . $row['scaned_qty'] . "</td>";
                     echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
                     echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
@@ -168,104 +164,10 @@
             </table>
         </div>
         <div class="col-md-3">
-            <input class="form-control" id="txtFldupc" name="upc" autofocus autocomplete="off"
-                   placeholder="Scan UPC here"
-                   onkeypress="scanItem(event, this.value)">
+            <input class="form-control" id="txtFldupc" name="upc" autofocus autocomplete="off" placeholder="Scan UPC here">
         </div>
     </div>
 </div>
 
-<!-- JS to put into a load event callback -->
-<script>
-    var xmlhttp; // TODO: get rid of this global variable
-
-    function loadXMLDoc(url, cfunc) {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = cfunc;
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-    }
-
-    function scanItem(key, upc) {
-        var x = key.which || key.keyCode;
-
-        // if return is pressed
-        if (x == 13) {
-
-            // add the scanned item in the inventory
-            loadXMLDoc("scanItem.php?upc=" + upc, function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    if (xmlhttp.responseText == "ITEM_NOT_FOUND_EXCEPTION") {
-                        $('#lbl-not-found-item').html(upc);
-                        $('#modal-new-item').modal("show");
-                    } else {
-                        document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
-                    }
-                }
-            });
-            // reset input for next scan
-            $("#txtFldupc").val("");
-        }
-    }
-
-    function printInventory() {
-        window.location.href = 'printInventory.php';
-    }
-    function insertNewItem() {
-        window.location.href = 'newItemForm.php?upc=' + $("#lbl-not-found-item").html();
-    }
-
-    function removeItem(upc) {
-        loadXMLDoc("removeItem.php?upc=" + upc, function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
-            }
-        });
-        $('#modal-remove-item').modal('hide');
-    }
-
-    function validateQty(number) {
-        return !number.NaN && number > 0 && number % 1 === 0;
-    }
-
-    function updateQuantity(upc, quantity) {
-        if (validateQty(quantity)) {
-            loadXMLDoc("updateQuantity.php?upc=" + upc + "&quantity=" + quantity, function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
-                }
-            });
-            $('#modal-edit-item-qty').modal('hide');
-        } else {
-            // TODO: error message
-        }
-    }
-
-    $(document).on("click", ".btn-edit-item", function () {
-        var upc = $(this).data('upc');
-        var model = $(this).data('model');
-        var itemQty = $(this).data('qty');
-        $("#lbl-edit-item-mes").html("<b>" + model + "</b>");
-        $("#btn-edit-item").data("upc", upc);
-        $("#new-item-qty").val(itemQty);
-        $('#modal-edit-item-qty').modal('show');
-    });
-
-    $(document).on("click", ".btn-remove-item", function () {
-        var upc = $(this).data('upc');
-        var model = $(this).data('model');
-        $("#lbl-remove-item-mes").html("Are you sure you want to remove <b>" + model + "</b> from the inventory?");
-        $("#btn-remove-item").data("upc", upc);
-        ;
-        $("#modal-remove-item").modal("show");
-    });
-
-</script>
 </body>
 </html>

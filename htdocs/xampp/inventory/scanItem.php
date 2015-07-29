@@ -4,13 +4,13 @@ require "refreshInventory.php";
 $upc = $_GET['upc'];
 $store_id = 1;
 
-$servername = "localhost";
+$serverName = "localhost";
 $username = "root";
 $password = "";
-$dbname = "eos";
+$dbName = "eos";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($serverName, $username, $password, $dbName);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
