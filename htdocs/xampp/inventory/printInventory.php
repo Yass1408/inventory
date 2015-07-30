@@ -14,6 +14,7 @@
             <th>Upc</th>
             <th>Item Number</th>
             <th>Model</th>
+            <th>Description</th>
             <th>Manufacture</th>
             <th>Quantity</th>
         </tr>
@@ -41,8 +42,9 @@
             echo "<tr>";
             echo "<td>" . $row['upc'] . "</td>";
             echo "<td>" . $row['item_no'] . "</td>";
-            echo "<td>" . $row['manufacture'] . "</td>";
+            echo "<td>" . $row['model'] . "</td>";
             echo "<td>" . $row['description'] . "</td>";
+            echo "<td>" . $row['manufacture'] . "</td>";
             echo "<td>" . $row['scaned_qty'] . "</td>";
             echo "</tr>";
         }

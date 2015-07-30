@@ -94,7 +94,7 @@ function getManufacture()
 
             <div class="col-md-4">
                 <input id="txtFldDescription" name="txtFldDescription" type="text" placeholder="" class="form-control input-md"
-                       autocomplete="off" required="">
+                       autocomplete="off">
 
             </div>
         </div>

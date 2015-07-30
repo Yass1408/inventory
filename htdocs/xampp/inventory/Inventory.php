@@ -13,13 +13,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     -->
+
 </head>
 
 <body>
-<div class="container">
-    <div class="row">
-
-        <button type="button" class="btn btn-info" id="btn-printInventory">Print Inventory</button>
+<div class="container-fuild">
+<div class="row">
+        <button type="button" class="btn btn-info navbar-fixed-top" id="btn-printInventory">Print Inventory</button>
 
         <!-- Item Not Found Modal -->
         <div id="modal-new-item" class="modal fade" role="dialog">
@@ -85,8 +85,8 @@
                         <p id="lbl-remove-item-mes"></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button id="btn-remove-item" type="button" class="btn btn-primary" data-upc="">Yes
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button id="btn-remove-item" type="button" class="btn btn-primary" data-upc="">Confirm
                         </button>
                     </div>
                 </div>
@@ -94,20 +94,22 @@
             </div>
         </div>
 
-        <div class="col-md-3">
-                <div class="input-group">
-                    <input class="form-control" id="item-search" name="q" placeholder="Search for" required autocomplete="off">
-                    <!--
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                    -->
-                </div>
+        <div class="col-md-3 col-lg-push-2">
+            <div class="input-group">
+                <input class="form-control" id="item-search" name="q" placeholder="Search for product" required
+                       autocomplete="off">
+                <!--
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+                -->
+            </div>
         </div>
 
-        <div class="col-md-8">
-            <table id="inventoryTable" class="table table-list-search table-hover"> <!-- TODO table hover  do not work-->
+        <div class="col-md-10 col-md-offset-2">
+            <table id="inventoryTable" class="table table-list-search table-hover" >
+                <!-- TODO table hover  do not work-->
                 <thead>
                 <tr>
                     <th>Item Number</th>
@@ -115,8 +117,7 @@
                     <th>Description</th>
                     <th>Manufacture</th>
                     <th>Quantity</th>
-                    <th>Edit</th>
-                    <th>Remove</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody id="inventory-data">
@@ -154,8 +155,8 @@
                     echo "<td>" . $row['description'] . "</td>";
                     echo "<td>" . $row['manufacture'] . "</td>";
                     echo "<td>" . $row['scaned_qty'] . "</td>";
-                    echo "<td><button class='btn btn-xs btn-edit-item' data-upc='" . $row['upc'] . "' data-model='" . $row['model'] . "' data-qty='" . $row['scaned_qty'] . "' data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
-                    echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc='" . $row['upc'] . "' data-model='" . $row['model'] . "' data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
+                    echo "<td><button class='btn btn-xs btn-edit-item' data-upc='" . $row['upc'] . "' data-model='" . $row['model'] . "' data-qty='" . $row['scaned_qty'] . "' data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button>";
+                    echo "<button class='btn btn-danger btn-xs btn-remove-item' data-upc='" . $row['upc'] . "' data-model='" . $row['model'] . "' data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
                     echo "</tr>";
                 }
                 $conn->close();
@@ -163,10 +164,11 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-3">
-            <input class="form-control" id="txtFldupc" name="upc" autofocus autocomplete="off" placeholder="Scan UPC here">
+        <div class="col-md-2 navbar-fixed-bottom">
+            <input class="form-control" id="txtFldupc" name="upc" autofocus autocomplete="off"
+                   placeholder="Scan UPC here">
         </div>
-    </div>
+</div>
 </div>
 
 <script src="js/inventorySearch.js"></script>

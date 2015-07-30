@@ -104,7 +104,7 @@ $(document).ready(function () {
     $(document).on("click", ".btn-remove-item", function () {
         var upc = $(this).data('upc');
         var model = $(this).data('model');
-        $("#lbl-remove-item-mes").html("Are you sure you want to remove <br><b>" + model + "</b></br> from the inventory?");
+        $("#lbl-remove-item-mes").html("Are you sure you want to delete: <br><b>" + model + "</b></br>");
         $("#btn-remove-item").data("upc", upc);
         $("#modal-remove-item").modal("show");
     });

@@ -1,5 +1,5 @@
 <?php
-echo 'new item process!';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $upc = $_GET['upc']; //TODO trouver un moyen plus elegant de chercher le UPC
@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $itemNo = test_input($_POST["txtFldItemNo"]);
     $model = test_input($_POST["txtFldModel"]);
     $manufacture = test_input($_POST["selectManufacture"]);
-    $description = test_input($_POST["txtDescription"]);
+    $description = test_input($_POST["txtFldDescription"]);
 
     $serverName = "localhost";
     $username = "root";
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt = "INSERT INTO item (upc, item_no, model, manufacture, description) VALUE ('" . $upc . "','" . $itemNo . "','" . $model . "','" . $manufacture. "','" . $description . "','" . $feature . "','" . $sheath . "','" . $package . "','" . $packageQty . "'," . $msrp . "," . $ump . "," . $wholesale . ")";
+    $stmt = "INSERT INTO item (upc, item_no, model, manufacture, description) VALUE ('" . $upc . "','" . $itemNo . "','" . $model . "','" . $manufacture. "','" . $description . "')";
 
     if (!$conn->query($stmt)) {
         echo "Error: " . $stmt . "<br>" . $conn->error;
