@@ -1,8 +1,14 @@
-﻿<!DOCTYPE html>
+﻿<?php // TODO SOLVE CACHING PROBLEM WITH MICROSOFT EDGE
+header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+?>
+<!DOCTYPE html>
 <html>
 <head>
-<!--    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
-
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,27 +38,27 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
+                <a href="">
                     Eastern Outdoor
                 </a>
             </li>
             <li>
-                <a href="#">Inventory</a>
+                <a href="">Inventory</a>
             </li>
             <li>
-                <a href="#">Stock Control</a>
+                <a href="">Stock Control</a>
             </li>
             <li>
                 <a href="printInventory.php" id="btn-printInventory">Print Inventory</a>
             </li>
             <li>
-                <a href="#">Settings</a>
+                <a href="">Settings</a>
             </li>
             <li>
-                <a href="#">About</a>
+                <a href="">About</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="">Contact</a>
             </li>
         </ul>
     </div>
@@ -177,6 +183,7 @@
                             <tbody id="inventory-data">
 
                             <?php
+                            require "refreshInventory.php";
 
                             $serverName = "localhost";
                             $username = "root";
@@ -189,7 +196,6 @@
                             if ($conn->connect_error) {
                                 die("Connection failed: " . $conn->connect_error);
                             }
-
                             // Convert the query result into utf8
                             $conn->query("SET character_set_results=utf8");
                             /*
@@ -197,29 +203,14 @@
                             mb_internal_encoding('UTF-8');
                             $conn->query("set names 'utf8'");
                             */
-
-                            $sql = "SELECT ITEM.upc, item_no, model, manufacture, description, scaned_qty FROM ITEM, INVENTORY WHERE ITEM.upc = INVENTORY.upc";
-
-                            $result = $conn->query($sql);
-
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<tr>";
-                                echo "<td>" . $row['item_no'] . "</td>";
-                                echo "<td>" . $row['model'] . "</td>";
-                                echo "<td>" . $row['description'] . "</td>";
-                                echo "<td>" . $row['manufacture'] . "</td>";
-                                echo "<td>" . $row['scaned_qty'] . "</td>";
-                                echo "<td><button class='btn btn-xs btn-edit-item' data-upc='" . $row['upc'] . "' data-model='" . $row['model'] . "' data-qty='" . $row['scaned_qty'] . "' data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button>";
-                                echo "<button class='btn btn-danger btn-xs btn-remove-item' data-upc='" . $row['upc'] . "' data-model='" . $row['model'] . "' data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
-                                echo "</tr>";
-                            }
+                            refreshInventory($conn); //TODO give a unique ID with AJAX
                             $conn->close();
                             ?>
                             </tbody>
                         </table>
                     </div>
 
-<!--                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
+                    <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
                 </div>
             </div>
         </div>

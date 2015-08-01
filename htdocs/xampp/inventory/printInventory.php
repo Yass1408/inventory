@@ -1,10 +1,16 @@
-<!DOCTYPE html>
+<?php
+header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+header("Content-Disposition: attachment;filename='filename.xls'");
+header("Cache-Control: max-age=0");
+?>
+
+<!--<!DOCTYPE html>-->
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-    <script src="js/jquery-1.11.3.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+<!--    <script src="js/jquery-1.11.3.js"></script>-->
+<!--    <script src="bootstrap/js/bootstrap.js"></script>-->
 </head>
 <body>
 <div class="col-md-8">
