@@ -58,9 +58,9 @@ $(document).ready(function () {
         }
     });
 
-    $("#btn-printInventory").click(function () {
-        window.location.href = 'printInventory.php';
-    });
+    //$("#btn-printInventory").click(function () {
+    //    window.location.href = 'printInventory.php';
+    //});
 
     $("#btn-insertNewItem").click(function insertNewItem() {
         window.location.href = 'newItemForm.php?upc=' + $("#lbl-not-found-item").html();
