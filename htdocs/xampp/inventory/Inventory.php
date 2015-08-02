@@ -1,38 +1,35 @@
-﻿<?php // TODO SOLVE CACHING PROBLEM WITH MICROSOFT EDGE
-header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-?>
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/inventory.css">
-    <link rel="stylesheet" type="text/css" href="css/simple-sidebar.css">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
 
-    <script src="js/jquery-1.11.3.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="_css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- Inventory CSS -->
+    <link href="_css/inventory.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="_js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- FOR PRODUCTION
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    -->
-
 </head>
 
 <body>
-<div class="wrapper">
+
+<div id="wrapper">
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -46,7 +43,7 @@ header("Pragma: no-cache");
                 <a href="">Inventory</a>
             </li>
             <li>
-                <a href="">Stock Control</a>
+                <a href="">Item Search</a>
             </li>
             <li>
                 <a href="printInventory.php" id="btn-printInventory">Print Inventory</a>
@@ -62,6 +59,7 @@ header("Pragma: no-cache");
             </li>
         </ul>
     </div>
+    <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
@@ -69,83 +67,12 @@ header("Pragma: no-cache");
             <div class="row">
                 <div class="col-lg-12">
 
-                    <!-- Item Not Found Modal -->
-                    <div id="modal-new-item" class="modal fade" role="dialog">
-                        <div class="modal-dialog modal-sm">
+                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
 
-                            <!-- Item Not Found Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Item Not Found!</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p id="lbl-not-found-item"></p>
-
-                                    <p>This item is not in de database.<br>Would you like to add it?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                                    <button type="button" class="btn btn-primary" id="btn-insertNewItem">Yes</button>
-                                    <!--TODO: diseable backgound. See modal options -->
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Edit Item Quantity Modal -->
-                    <div id="modal-edit-item-qty" class="modal fade" role="dialog">
-                        <div class="modal-dialog modal-sm">
-
-                            <!-- Edit Item Quantity Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Edit item</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p id="lbl-edit-item-mes"></p>
-
-                                    <div class="col-md-9">  <!-- TODO: make it a form -->
-                                        <input id="new-item-qty" name="new-item-qty" type="number"
-                                               placeholder="Item Quantity"
-                                               class="form-control input-md" autocomplete="off" required="">
-                                    </div>
-                                    <button id="btn-edit-item" type="button" class="btn btn-primary" data-upc="">Save
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Remove Item Modal -->
-                    <div id="modal-remove-item" class="modal fade" role="dialog">
-                        <div class="modal-dialog modal-sm">
-
-                            <!-- Remove Item Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Remove item</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p id="lbl-remove-item-mes"></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <button id="btn-remove-item" type="button" class="btn btn-primary" data-upc="">
-                                        Confirm
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    <?php include "html/modal.html"; ?>
 
                     <!-- Search Text Field -->
-                    <div class="col-md-3 col-lg-offset-2">
+                    <div class="col-md-3">
                         <div class="input-group">
                             <input class="form-control" id="item-search" name="q" placeholder="Search for product"
                                    required
@@ -165,60 +92,57 @@ header("Pragma: no-cache");
                                placeholder="Scan UPC here">
                     </div>
 
-
                     <!-- Inventory Table -->
-                    <div class="col-md-10 col-md-offset-2">
-                        <table id="inventoryTable" class="table table-list-search table-hover">
-                            <!-- TODO table hover  do not work-->
-                            <thead>
-                            <tr>
-                                <th>Item Number</th>
-                                <th>Model</th>
-                                <th>Description</th>
-                                <th>Manufacture</th>
-                                <th>Quantity</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody id="inventory-data">
+                    <table id="inventoryTable" class="table table-list-search table-hover">
+                        <!-- TODO table hover  do not work-->
+                        <thead>
+                        <tr>
+                            <th>Item Number</th>
+                            <th>Model</th>
+                            <th>Description</th>
+                            <th>Manufacture</th>
+                            <th>Quantity</th>
+                            <th><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>
+                        </tr>
+                        </thead>
+                        <tbody id="inventory-data">
 
-                            <?php
-                            require "refreshInventory.php";
+                        <?php
+                        require "refreshInventory.php";
 
-                            $serverName = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $dbName = "eos";
+                        $serverName = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbName = "eos";
 
-                            // Create connection
-                            $conn = new mysqli($serverName, $username, $password, $dbName);
-                            // Check connection
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            }
-                            // Convert the query result into utf8
-                            $conn->query("SET character_set_results=utf8");
-                            /*
-                            mb_language('uni');
-                            mb_internal_encoding('UTF-8');
-                            $conn->query("set names 'utf8'");
-                            */
-                            refreshInventory($conn); //TODO give a unique ID with AJAX
-                            $conn->close();
-                            ?>
-                            </tbody>
-                        </table>
-                    </div>
+                        // Create connection
+                        $conn = new mysqli($serverName, $username, $password, $dbName);
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        // Convert the query result into utf8
+                        $conn->query("SET character_set_results=utf8");
+                        /*
+                        mb_language('uni');
+                        mb_internal_encoding('UTF-8');
+                        $conn->query("set names 'utf8'");
+                        */
+                        refreshInventory($conn, $username); //TODO give a unique ID with AJAX
+                        $conn->close();
+                        ?>
+                        </tbody>
+                    </table>
 
-                    <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- /#page-content-wrapper -->
 
-<script src="js/inventorySearch.js"></script>
-<script src="js/inventory.js"></script>
+</div>
+<!-- /#wrapper -->
+
 
 <!-- Menu Toggle Script -->
 <script>
@@ -228,5 +152,9 @@ header("Pragma: no-cache");
     });
 </script>
 
+<script src="_js/inventorySearch.js"></script>
+<script src="_js/inventory.js"></script>
+
 </body>
+
 </html>

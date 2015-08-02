@@ -20,10 +20,10 @@ if ($conn->connect_error) {
 // Convert the query result into utf8
 $conn->query("SET character_set_results=utf8");
 
-$stmt = $conn->prepare("UPDATE inventory SET scaned_qty = ? WHERE upc = ?");
+$stmt = $conn->prepare("UPDATE inventory SET scaned_qty = ? WHERE upc = ? AND user_id = ?");
 
 /* Binds variables to prepared statement */
-$stmt->bind_param('is', $quantity, $upc);
+$stmt->bind_param('iss', $quantity, $upc, $username);
 
 /* execute query */
 $stmt->execute() or die($stmt->error);
@@ -35,6 +35,6 @@ $stmt->free_result();
 $stmt->close();
 
 
-refreshInventory($conn);
+refreshInventory($conn, $username);
 
 $conn->close();

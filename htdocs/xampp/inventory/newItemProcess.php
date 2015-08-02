@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $stmt . "<br>" . $conn->error;
     }
 
-    $stmt = "INSERT INTO inventory (upc, store_id, scaned_qty) VALUE ('". $upc ."', 1, 1)"; // TODO don't hard code store_id
+    $stmt = "INSERT INTO inventory (upc, user_id, store_id, scaned_qty) VALUE ('". $upc ."', '".$username."', 1, 1)"; // TODO don't hard code store_id a
 
     if (!$conn->query($stmt)) {
         echo "Error: " . $stmt . "<br>" . $conn->error;

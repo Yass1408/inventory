@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `inventory` (
   `upc` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `store_id` int(4) NOT NULL,
   `scaned_qty` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -2111,7 +2112,7 @@ INSERT INTO `store` (`store_id`, `store_name`) VALUES
 -- Indexes for table `inventory`
 --
 ALTER TABLE `inventory`
-  ADD PRIMARY KEY (`upc`,`store_id`);
+  ADD PRIMARY KEY (`upc`,`user_id`,`store_id`);
 
 --
 -- Indexes for table `item`

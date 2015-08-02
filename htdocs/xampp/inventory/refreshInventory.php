@@ -1,6 +1,6 @@
 <?php
 
-function refreshInventory($conn)
+function refreshInventory($conn, $username)
 {
     $result = $conn->query("
     SELECT
@@ -14,7 +14,8 @@ function refreshInventory($conn)
         ITEM,
         INVENTORY
     WHERE
-        ITEM.upc = INVENTORY.upc");
+        ITEM.upc = INVENTORY.upc
+        and user_id ='". $username ."'");
 
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
@@ -23,8 +24,8 @@ function refreshInventory($conn)
         echo "<td>" . $row['description'] . "</td>";
         echo "<td>" . $row['manufacture'] . "</td>";
         echo "<td>" . $row['scaned_qty'] . "</td>";
-        echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button></td>";
-        echo "<td><button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
+        echo "<td><button class='btn btn-xs btn-edit-item' data-upc=" . $row['upc'] . "  data-model=" . $row['model'] . " data-qty=" . $row['scaned_qty'] . " data-toggle='modal'><span class='glyphicon glyphicon-pencil'></span></button>";
+        echo "<button class='btn btn-danger btn-xs btn-remove-item' data-upc=" . $row['upc'] . " data-model=" . $row['model'] . " data-title='Delete' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span></button></td>";
         echo "</tr>";
     }
 }

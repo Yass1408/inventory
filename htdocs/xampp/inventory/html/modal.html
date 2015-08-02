@@ -1,0 +1,75 @@
+
+<!-- Item Not Found Modal -->
+<div id="modal-new-item" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Item Not Found Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Item Not Found!</h4>
+            </div>
+            <div class="modal-body">
+                <p id="lbl-not-found-item"></p>
+
+                <p>This item is not in de database.<br>Would you like to add it?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" id="btn-insertNewItem">Yes</button>
+                <!--TODO: diseable backgound. See modal options -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Edit Item Quantity Modal -->
+<div id="modal-edit-item-qty" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Edit Item Quantity Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit item</h4>
+            </div>
+            <div class="modal-body">
+                <p id="lbl-edit-item-mes"></p>
+
+                <div class="col-md-9">  <!-- TODO: make it a form -->
+                    <input id="new-item-qty" name="new-item-qty" type="number"
+                           placeholder="Item Quantity"
+                           class="form-control input-md" autocomplete="off" required="">
+                </div>
+                <button id="btn-edit-item" type="button" class="btn btn-primary" data-upc="">Save
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Remove Item Modal -->
+<div id="modal-remove-item" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Remove Item Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Remove item</h4>
+            </div>
+            <div class="modal-body">
+                <p id="lbl-remove-item-mes"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="btn-remove-item" type="button" class="btn btn-primary" data-upc="">
+                    Confirm
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
