@@ -40,22 +40,32 @@
                 </a>
             </li>
             <li>
-                <a href="">Inventory</a>
+                <a href="">INVENTORY</a>
             </li>
             <li>
-                <a href="">Item Search</a>
+                <a href="">DATABASE SEARCH</a>
             </li>
             <li>
-                <a href="printInventory.php" id="btn-printInventory">Print Inventory</a>
+                <a href="javascript:;" id="btn-printInventory" data-toggle="collapse" data-target="#export-options">EXPORT
+                    INVENTORY</a>
+                <ul id="export-options" class="collapse">
+                    <li>
+                        <a href="printInventory.php">EXCEL</a>
+                    </li>
+                    <li>
+                        <a href="">PDF</a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a href="">Settings</a>
+            <li>
+                <a href="">SETTINGS</a>
             </li>
             <li>
-                <a href="">About</a>
+                <a href="">ABOUT</a>
             </li>
             <li>
-                <a href="">Contact</a>
+                <a href="">CONTACT</a>
             </li>
         </ul>
     </div>
@@ -66,24 +76,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-
-                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-
-                    <?php include "html/modal.html"; ?>
+                    <?php include "_html/modal.html"; ?>
 
                     <!-- Search Text Field -->
-                    <div class="col-md-3">
-                        <div class="input-group">
-                            <input class="form-control" id="item-search" name="q" placeholder="Search for product"
-                                   required
-                                   autocomplete="off">
-                            <!--
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>
-                                </button>
-                            </span>
-                            -->
-                        </div>
+                    <div class="input-group">
+                        <input class="form-control" id="item-search" name="q"
+                               placeholder="Search for product"
+                               required
+                               autocomplete="off">
+
                     </div>
 
                     <!-- UPC Scan Text Field -->
@@ -133,6 +134,8 @@
                         ?>
                         </tbody>
                     </table>
+
+                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
 
                 </div>
             </div>
