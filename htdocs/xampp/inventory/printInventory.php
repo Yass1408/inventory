@@ -1,6 +1,7 @@
 <?php
-header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-header("Content-Disposition: attachment;filename='filename.xls'");
+header("Content-Type: application/vnd.ms-excel");
+//header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+header("Content-Disposition: attachment; filename='filename.htm'");
 header("Cache-Control: max-age=0");
 ?>
 
