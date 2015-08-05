@@ -27,7 +27,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <style>
         body {
-            padding-bottom: 51px;
+            padding-top: 51px;
             /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
         }
 
@@ -83,7 +83,7 @@
                 <div class="col-lg-12">
 
                     <!-- Navigation -->
-                    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -117,14 +117,15 @@
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
                                     <li>
+                                        <span class='glyphicon glyphicon-search navbar-brand'>&nbsp;</span>
                                         <!-- Search Text Field -->
-                                        <!--                                        <div class="input-group navbar-form ">-->
-                                        <!--                                            <input class="form-control" id="item-search" name="q"-->
-                                        <!--                                                   placeholder="Search for product"-->
-                                        <!--                                                   required-->
-                                        <!--                                                   autocomplete="off">-->
-                                        <!---->
-                                        <!--                                        </div>-->
+<!--                                                                                <div class="input-group navbar-form">-->
+<!--                                                                                    <input class="form-control" id="item-search" name="q"-->
+<!--                                                                                           placeholder="Search for product"-->
+<!--                                                                                           required-->
+<!--                                                                                           autocomplete="off">-->
+<!---->
+<!--                                                                                </div>-->
                                     </li>
                                 </ul>
                             </div>
