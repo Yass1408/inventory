@@ -25,11 +25,19 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            padding-bottom: 51px;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+    </style>
 </head>
 
 <body>
 
 <div id="wrapper">
+
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -41,9 +49,6 @@
             </li>
             <li>
                 <a href="">INVENTORY</a>
-            </li>
-            <li>
-                <a href="">DATABASE SEARCH</a>
             </li>
             <li>
                 <a href="javascript:;" id="btn-printInventory" data-toggle="collapse" data-target="#export-options">EXPORT
@@ -59,10 +64,10 @@
             </li>
             <li>
             <li>
-                <a href="">SETTINGS</a>
+                <a href="">EDIT DATABASE</a>
             </li>
             <li>
-                <a href="">ABOUT</a>
+                <a href="">SETTINGS</a>
             </li>
             <li>
                 <a href="">CONTACT</a>
@@ -76,25 +81,63 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+
+                    <!-- Navigation -->
+                    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                        data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <div>
+                                            <a href="#menu-toggle" class="navbar-brand" id="menu-toggle">
+                                                <!-- <span class='glyphicon glyphicon-chevron-left'></span> -->
+                                                Toggle Menu</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="navbar-form">
+                                            <div class="col-md-10 col-lg-offset-5">
+                                                <input class="form-control" id="txtFldupc" name="upc" autofocus
+                                                       autocomplete="off"
+                                                       placeholder="Scan UPC here">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <!-- Search Text Field -->
+                                        <!--                                        <div class="input-group navbar-form ">-->
+                                        <!--                                            <input class="form-control" id="item-search" name="q"-->
+                                        <!--                                                   placeholder="Search for product"-->
+                                        <!--                                                   required-->
+                                        <!--                                                   autocomplete="off">-->
+                                        <!---->
+                                        <!--                                        </div>-->
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                        <!-- /.container -->
+                    </nav>
+
                     <?php include "_html/modal.html"; ?>
 
-                    <!-- Search Text Field -->
-                    <div class="input-group">
-                        <input class="form-control" id="item-search" name="q"
-                               placeholder="Search for product"
-                               required
-                               autocomplete="off">
-
-                    </div>
-
-                    <!-- UPC Scan Text Field -->
-                    <div class="col-md-2 navbar-fixed-bottom">
-                        <input class="form-control" id="txtFldupc" name="upc" autofocus autocomplete="off"
-                               placeholder="Scan UPC here">
-                    </div>
 
                     <!-- Inventory Table -->
-                    <table id="inventoryTable" class="table table-list-search table-hover">
+                    <table id="inventoryTable" class="table table-list-search table-hover table-fixed">
                         <!-- TODO table hover  do not work-->
                         <thead>
                         <tr>
@@ -135,7 +178,7 @@
                         </tbody>
                     </table>
 
-                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                    <!--                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
 
                 </div>
             </div>
