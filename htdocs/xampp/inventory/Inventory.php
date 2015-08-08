@@ -1,15 +1,17 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <title>InventoryIt</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +27,10 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="_js/inventorySearch.js"></script>
+    <script src="_js/inventory.js"></script>
+
     <style>
         body {
             padding-top: 51px;
@@ -38,7 +44,6 @@
 
 <div id="wrapper">
 
-
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -51,7 +56,7 @@
                 <a href="">INVENTORY</a>
             </li>
             <li>
-                <a href="javascript:;" id="btn-printInventory" data-toggle="collapse" data-target="#export-options">EXPORT
+                <a href="" id="btn-printInventory" data-toggle="collapse" data-target="#export-options">EXPORT
                     INVENTORY</a>
                 <ul id="export-options" class="collapse">
                     <li>
@@ -83,58 +88,69 @@
                 <div class="col-lg-12">
 
                     <!-- Navigation -->
-                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <nav class="navbar navbar-inverse navbar-fixed-top">
                         <div class="container-fluid">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                        data-target="#bs-example-navbar-collapse-1">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
+                            <!-- Brand and toggle get grouped for better mobile display -->
+<!--                            <div class="navbar-header">-->
+<!--                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
+<!--                                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+<!--                                    <span class="sr-only">Toggle navigation</span>-->
+<!--                                    <span class="icon-bar"></span>-->
+<!--                                    <span class="icon-bar"></span>-->
+<!--                                    <span class="icon-bar"></span>-->
+<!--                                </button>-->
+<!--                                <a class="navbar-brand" href="#">Brand</a>-->
+<!--                            </div>-->
 
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
+<!--                                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+<!--                                    <li><a href="#">Link</a></li>-->
                                     <li>
                                         <div>
                                             <a href="#menu-toggle" class="navbar-brand" id="menu-toggle">
                                                 <!-- <span class='glyphicon glyphicon-chevron-left'></span> -->
-                                                Toggle Menu</a>
+                                                &nbsp;Menu</a>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="navbar-form">
-                                            <div class="col-md-10 col-lg-offset-5">
-                                                <input class="form-control" id="txtFldupc" name="upc" autofocus
-                                                       autocomplete="off"
-                                                       placeholder="Scan UPC here">
-                                            </div>
-                                        </div>
-                                    </li>
+
                                 </ul>
-                            </div>
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
+                                <div class="navbar-form navbar-left">
+                                    <div class="form-group">
+                                        <input class="form-control" id="txtFldupc" name="upc" onkeypress="alert('fds')"
+                                               autofocus
+                                               autocomplete="off"
+                                               placeholder="Scan UPC here"
+                                               required>
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </div>
+                                <ul class="nav navbar-nav navbar-right">
                                     <li>
-                                        <span class='glyphicon glyphicon-search navbar-brand'>&nbsp;</span>
-                                        <!-- Search Text Field -->
-<!--                                                                                <div class="input-group navbar-form">-->
-<!--                                                                                    <input class="form-control" id="item-search" name="q"-->
-<!--                                                                                           placeholder="Search for product"-->
-<!--                                                                                           required-->
-<!--                                                                                           autocomplete="off">-->
-<!---->
-<!--                                                                                </div>-->
+                                          <span class='glyphicon glyphicon-search navbar-brand'>&nbsp;</span>
                                     </li>
+                                    <li>
+<!--                                         Search Text Field-->
+                                        <form class="navbar-form navbar-left" role="search">
+                                          <div class="form-group">
+                                              <input class="form-control" id="item-search" name="q"
+                                                     placeholder="Search for product"
+                                                     required
+                                                     autocomplete="off">
+                                        </form>
+                                         </div>
+                                    </li>
+
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->
                         </div>
-                        <!-- /.container -->
+                        <!-- /.container-fluid -->
                     </nav>
+                    <!-- /Navigation -->
 
-                    <?php include "_html/modal.html"; ?>
+                    <?php include "_html/modal.html"; ?> <!--TODO CORRECT GO BACK SO THE TABLE IS ALWAYS UP TO DATE-->
 
 
                     <!-- Inventory Table -->
@@ -179,7 +195,7 @@
                         </tbody>
                     </table>
 
-                    <!--                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
+                    <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
 
                 </div>
             </div>
@@ -198,9 +214,6 @@
         $("#wrapper").toggleClass("toggled");
     });
 </script>
-
-<script src="_js/inventorySearch.js"></script>
-<script src="_js/inventory.js"></script>
 
 </body>
 
