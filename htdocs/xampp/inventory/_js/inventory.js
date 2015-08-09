@@ -49,6 +49,8 @@ $(document).ready(function () {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         //TODO if item added to inventory: label->last item added UPC
                         if (xmlhttp.responseText == "ITEM_NOT_FOUND_EXCEPTION") {
+                            txtFldUpc.blur();
+                            //TODO find a way to focus on YES button
                             $('#lbl-not-found-item').html(upc);
                             $('#modal-new-item').modal("show");
                         } else {
@@ -83,10 +85,6 @@ $(document).ready(function () {
             $("#txtFldupc").focus();
         }
 
-
-//$("#btn-printInventory").click(function () {
-//    window.location.href = 'printInventory.php';
-//});
 
         $("#btn-insertNewItem").click(function insertNewItem() {
             window.location.href = 'newItemForm.php?upc=' + $("#lbl-not-found-item").html();
@@ -135,13 +133,23 @@ $(document).ready(function () {
             $("#modal-remove-item").modal("show");
         });
 
-//$(document).on("click", "#btn-printInventory", printInventory());
-//$("#btn-insertNewItem").click(function () {
-//    alert('d');
-//});
-//$(document).on("click", "#btn-edit-item", updateQuantity($('#new-item-qty').val()));
-//$(document).on("click", "#btn-remove-item", removeItem($(this).data('upc')));
 
+        // Menu toggle
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+
+        // Adjust inventory table
+        var $window = $(window).on('resize', function () {
+            var content = $('#sidebar-wrapper').height();
+            var header = $('#navigation-wrapper').height() * 2;
+            var tableWrapper = $('#table-wrapper').height(content - header);
+            var tableHeaderWrapper = $('#table-header-wrapper').height();
+
+            $('#table-body-wrapper').height(tableWrapper.height() - tableHeaderWrapper);
+        }).trigger('resize'); //on page load
 
     }
 )

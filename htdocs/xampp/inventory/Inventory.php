@@ -16,7 +16,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- Sidebar CSS -->
     <link href="_css/simple-sidebar.css" rel="stylesheet">
 
     <!-- Inventory CSS -->
@@ -28,14 +28,14 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
+    <!-- Inventory Search -->
     <script src="_js/inventorySearch.js"></script>
+
+    <!-- Inventory JS -->
     <script src="_js/inventory.js"></script>
-
-
 </head>
 
 <body>
-
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -120,7 +120,8 @@
                                                required style="width: 300px">
                                     </div>
                                     <span>
-                                        <label id="lbl-itemAdded-title" class="text-lastScan" style="padding-left: 20px; display: none">Last Scan : </label>
+                                        <label id="lbl-itemAdded-title" class="text-lastScan"
+                                               style="padding-left: 20px; display: none">Last Scan : </label>
                                         <label id="lbl-itemAdded" class="text-lastScan"></label>
                                     </span>
                                     <!--                                    <button type="submit" class="btn btn-default">Submit</button>-->
@@ -142,7 +143,6 @@
                     <!-- /Navigation -->
 
                     <?php include "_html/modal.html"; ?> <!--TODO CORRECT GO BACK SO THE TABLE IS ALWAYS UP TO DATE-->
-
 
                     <!-- Inventory Table -->
                     <div id="table-wrapper">
@@ -217,22 +217,7 @@
 
 <!-- Menu Toggle Script -->
 <script>
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
 
-    //$('#table-wrapper').height(100)
-
-
-    var $window = $(window).on('resize', function () {
-        var content = $('#sidebar-wrapper').height();
-        var header = $('#navigation-wrapper').height() * 2;
-        var tableWrapper = $('#table-wrapper').height(content - header);
-        var tableHeaderWrapper = $('#table-header-wrapper').height();
-
-        $('#table-body-wrapper').height(tableWrapper.height() - tableHeaderWrapper);
-    }).trigger('resize'); //on page load
 
 </script>
 
