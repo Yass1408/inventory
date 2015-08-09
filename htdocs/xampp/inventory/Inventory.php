@@ -31,21 +31,7 @@
     <script src="_js/inventorySearch.js"></script>
     <script src="_js/inventory.js"></script>
 
-    <style>
-        body {
-            padding-top: 48px;
-            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-        }
 
-        .selected {
-            background-color: red;
-        }
-
-        .selected:hover {
-            background-color: steelblue;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -134,8 +120,8 @@
                                                required style="width: 300px">
                                     </div>
                                     <span>
-                                        <label id="lbl-itemAdded-title" class="text-success" style="padding-left: 20px; display: none">Last Scan : </label>
-                                        <label id="lbl-itemAdded" class="text-success"></label>
+                                        <label id="lbl-itemAdded-title" class="text-lastScan" style="padding-left: 20px; display: none">Last Scan : </label>
+                                        <label id="lbl-itemAdded" class="text-lastScan"></label>
                                     </span>
                                     <!--                                    <button type="submit" class="btn btn-default">Submit</button>-->
                                 </div>
@@ -170,7 +156,7 @@
                                     <th style="width:30%">Description</th>
                                     <th style="width:13%">Manufacture</th>
                                     <th style="width: 9%">Quantity</th>
-                                    <th style="width:7%"><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>
+                                    <th style="width: 7%"><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>
                                 </tr>
                                 </thead>
                             </table>

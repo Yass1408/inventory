@@ -47,30 +47,41 @@ $(document).ready(function () {
                 // add the scanned item in the inventory
                 loadXMLDoc("scanItem.php?upc=" + upc, function () {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        //TODO if item added to inventory: label->last item added UPC
                         if (xmlhttp.responseText == "ITEM_NOT_FOUND_EXCEPTION") {
                             $('#lbl-not-found-item').html(upc);
                             $('#modal-new-item').modal("show");
                         } else {
                             document.getElementById("inventory-data").innerHTML = xmlhttp.responseText;
+
+                            // Item added label
+                            $('#lbl-itemAdded-title').css('display', 'inherit');
+                            $('#lbl-itemAdded').html(upc);
+
+                            //highlight item table row
+                            //$('#' + upc).addClass('selected');
+                            setTimeout(highlightTableRow, 200);
                         }
                     }
                 });
-                // Item added label
-                $('#lbl-itemAdded-title').css('display', 'inherit');
-                $('#lbl-itemAdded').html(upc);
-
                 // Focus on last added item
-                location.href = '#'+upc;
-                $('#'+upc).addClass('selected');
+                //location.href = '#'+upc;
+                //$('#'+upc).addClass('selected');
 
                 // reset input for next scan
                 $(this).val("");
-                txtFldUpc.focus();
 
+                //txtFldUpc.focus();
             }
         });
 
-
+        // Highlight the last item scanned
+        function highlightTableRow() {
+            var upc = $('#lbl-itemAdded').html();
+            location.href = '#' + upc;
+            $('#' + upc).addClass('selected');
+            $("#txtFldupc").focus();
+        }
 
 
 //$("#btn-printInventory").click(function () {
