@@ -15,10 +15,11 @@ function refreshInventory($conn, $username)
         INVENTORY
     WHERE
         ITEM.upc = INVENTORY.upc
-        and user_id ='". $username ."'");
+        and user_id ='". $username ."'
+    ORDER BY added_time");
 
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
+        echo "<tr id='".$row['upc']."'>";
         echo "<td>" . $row['item_no'] . "</td>";
         echo "<td>" . $row['model'] . "</td>";
         echo "<td>" . $row['description'] . "</td>";

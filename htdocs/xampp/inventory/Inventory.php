@@ -33,8 +33,16 @@
 
     <style>
         body {
-            padding-top: 51px;
+            padding-top: 48px;
             /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+        .selected {
+            background-color: red;
+        }
+
+        .selected:hover {
+            background-color: steelblue;
         }
 
     </style>
@@ -89,28 +97,29 @@
 
                     <!-- Navigation -->
                     <nav class="navbar navbar-inverse navbar-fixed-top">
-                        <div class="container-fluid">
+                        <div id="navigation-wrapper" class="container-fluid">
                             <!-- Brand and toggle get grouped for better mobile display -->
-<!--                            <div class="navbar-header">-->
-<!--                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
-<!--                                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
-<!--                                    <span class="sr-only">Toggle navigation</span>-->
-<!--                                    <span class="icon-bar"></span>-->
-<!--                                    <span class="icon-bar"></span>-->
-<!--                                    <span class="icon-bar"></span>-->
-<!--                                </button>-->
-<!--                                <a class="navbar-brand" href="#">Brand</a>-->
-<!--                            </div>-->
+                            <!--                            <div class="navbar-header">-->
+                            <!--                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
+                            <!--                                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+                            <!--                                    <span class="sr-only">Toggle navigation</span>-->
+                            <!--                                    <span class="icon-bar"></span>-->
+                            <!--                                    <span class="icon-bar"></span>-->
+                            <!--                                    <span class="icon-bar"></span>-->
+                            <!--                                </button>-->
+                            <!--                                <a class="navbar-brand" href="#">Brand</a>-->
+                            <!--                            </div>-->
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <!--                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+                            <div>
                                 <ul class="nav navbar-nav">
-<!--                                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
-<!--                                    <li><a href="#">Link</a></li>-->
+                                    <!--                                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+                                    <!--                                    <li><a href="#">Link</a></li>-->
                                     <li>
                                         <div>
-                                            <a href="#menu-toggle" class="navbar-brand" id="menu-toggle">
-                                                <!-- <span class='glyphicon glyphicon-chevron-left'></span> -->
+                                            <a href="#menu-toggle" class="navbar-brand" id="menu-toggle"
+                                               style="padding-right: 170px">
                                                 &nbsp;Menu</a>
                                         </div>
                                     </li>
@@ -118,31 +127,27 @@
                                 </ul>
                                 <div class="navbar-form navbar-left">
                                     <div class="form-group">
-                                        <input class="form-control" id="txtFldupc" name="upc" onkeypress="alert('fds')"
+                                        <input class="form-control" id="txtFldupc" name="upc"
                                                autofocus
                                                autocomplete="off"
                                                placeholder="Scan UPC here"
-                                               required>
+                                               required style="width: 300px">
                                     </div>
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <span>
+                                        <label class="text-success" style="padding-left: 50px">Item Added:</label>
+                                        <label id="lbl-itemAdded" class="text-success"></label>
+                                    </span>
+                                    <!--                                    <button type="submit" class="btn btn-default">Submit</button>-->
                                 </div>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li>
-                                          <span class='glyphicon glyphicon-search navbar-brand'>&nbsp;</span>
-                                    </li>
-                                    <li>
-<!--                                         Search Text Field-->
-                                        <form class="navbar-form navbar-left" role="search">
-                                          <div class="form-group">
-                                              <input class="form-control" id="item-search" name="q"
-                                                     placeholder="Search for product"
-                                                     required
-                                                     autocomplete="off">
-                                        </form>
-                                         </div>
-                                    </li>
-
-                                </ul>
+                                <div class="navbar-form navbar-right">
+                                    <div class="form-group">
+                                        <input class="form-control" id="item-search" name="q"
+                                               placeholder="Search for product"
+                                               required
+                                               autocomplete="off">
+                                    </div>
+                                    <span class='glyphicon glyphicon-search' style="color:gray"></span>
+                                </div>
                             </div>
                             <!-- /.navbar-collapse -->
                         </div>
@@ -154,47 +159,63 @@
 
 
                     <!-- Inventory Table -->
-                    <table id="inventoryTable" class="table table-list-search table-hover table-fixed">
-                        <!-- TODO table hover  do not work-->
-                        <thead>
-                        <tr>
-                            <th>Item Number</th>
-                            <th>Model</th>
-                            <th>Description</th>
-                            <th>Manufacture</th>
-                            <th>Quantity</th>
-                            <th><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>
-                        </tr>
-                        </thead>
-                        <tbody id="inventory-data">
+                    <div id="table-wrapper">
+                        <div id="table-header-wrapper">
+                            <table id="inventoryTable" class="table table-list-search table-hover table-fixed" style="padding: 0; margin: 0;">
+                                <thead>
+                                <tr>
+                                    <th>Item Number</th>
+                                    <th>Model</th>
+                                    <th>Description</th>
+                                    <th>Manufacture</th>
+                                    <th>Quantity</th>
+                                    <th><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div id="table-body-wrapper" style="overflow-y: scroll;">
+                            <table id="inventoryTable" class="table table-list-search table-hover table-fixed">
+<!--                                <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>Item Number</th>-->
+<!--                                    <th>Model</th>-->
+<!--                                    <th>Description</th>-->
+<!--                                    <th>Manufacture</th>-->
+<!--                                    <th>Quantity</th>-->
+<!--                                    <th><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>-->
+<!--                                </tr>-->
+<!--                                </thead>-->
+                                <tbody id="inventory-data">
 
-                        <?php
-                        require "refreshInventory.php";
+                                <?php
+                                require "refreshInventory.php";
 
-                        $serverName = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbName = "eos";
+                                $serverName = "localhost";
+                                $username = "root";
+                                $password = "";
+                                $dbName = "eos";
 
-                        // Create connection
-                        $conn = new mysqli($serverName, $username, $password, $dbName);
-                        // Check connection
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-                        // Convert the query result into utf8
-                        $conn->query("SET character_set_results=utf8");
-                        /*
-                        mb_language('uni');
-                        mb_internal_encoding('UTF-8');
-                        $conn->query("set names 'utf8'");
-                        */
-                        refreshInventory($conn, $username); //TODO give a unique ID with AJAX
-                        $conn->close();
-                        ?>
-                        </tbody>
-                    </table>
-
+                                // Create connection
+                                $conn = new mysqli($serverName, $username, $password, $dbName);
+                                // Check connection
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                }
+                                // Convert the query result into utf8
+                                $conn->query("SET character_set_results=utf8");
+                                /*
+                                mb_language('uni');
+                                mb_internal_encoding('UTF-8');
+                                $conn->query("set names 'utf8'");
+                                */
+                                refreshInventory($conn, $username); //TODO give a unique ID with AJAX
+                                $conn->close();
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
 
                 </div>
@@ -213,6 +234,19 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+    //$('#table-wrapper').height(100)
+
+
+    var $window = $(window).on('resize', function () {
+        var content = $('#sidebar-wrapper').height();
+        var header = $('#navigation-wrapper').height() * 2;
+        var tableWrapper = $('#table-wrapper').height(content - header);
+        var tableHeaderWrapper = $('#table-header-wrapper').height();
+
+        $('#table-body-wrapper').height(tableWrapper.height() - tableHeaderWrapper);
+    }).trigger('resize'); //on page load
+
 </script>
 
 </body>
