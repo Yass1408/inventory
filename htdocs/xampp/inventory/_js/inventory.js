@@ -56,6 +56,7 @@ $(document).ready(function () {
                     }
                 });
                 // Item added label
+                $('#lbl-itemAdded-title').css('display', 'inherit');
                 $('#lbl-itemAdded').html(upc);
 
                 // Focus on last added item

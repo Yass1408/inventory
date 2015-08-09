@@ -134,7 +134,7 @@
                                                required style="width: 300px">
                                     </div>
                                     <span>
-                                        <label class="text-success" style="padding-left: 50px">Item Added:</label>
+                                        <label id="lbl-itemAdded-title" class="text-success" style="padding-left: 20px; display: none">Last Scan : </label>
                                         <label id="lbl-itemAdded" class="text-success"></label>
                                     </span>
                                     <!--                                    <button type="submit" class="btn btn-default">Submit</button>-->
@@ -165,12 +165,12 @@
                                    style="padding: 0; margin: 0;">
                                 <thead>
                                 <tr>
-                                    <th>Item Number</th>
-                                    <th>Model</th>
-                                    <th>Description</th>
-                                    <th>Manufacture</th>
-                                    <th>Quantity</th>
-                                    <th><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>
+                                    <th style="width:12%">Item Number</th>
+                                    <th style="width:30%">Model</th>
+                                    <th style="width:30%">Description</th>
+                                    <th style="width:13%">Manufacture</th>
+                                    <th style="width: 9%">Quantity</th>
+                                    <th style="width:7%"><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>
                                 </tr>
                                 </thead>
                             </table>
