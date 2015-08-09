@@ -64,7 +64,7 @@
                 <a href="">INVENTORY</a>
             </li>
             <li>
-                <a href="" id="btn-printInventory" data-toggle="collapse" data-target="#export-options">EXPORT
+                <a href="javascript:;" id="btn-printInventory" data-toggle="collapse" data-target="#export-options">EXPORT
                     INVENTORY</a>
                 <ul id="export-options" class="collapse">
                     <li>
@@ -161,7 +161,8 @@
                     <!-- Inventory Table -->
                     <div id="table-wrapper">
                         <div id="table-header-wrapper">
-                            <table id="inventoryTable" class="table table-list-search table-hover table-fixed" style="padding: 0; margin: 0;">
+                            <table id="inventoryTable" class="table table-list-search table-hover table-fixed"
+                                   style="padding: 0; margin: 0;">
                                 <thead>
                                 <tr>
                                     <th>Item Number</th>
@@ -176,16 +177,16 @@
                         </div>
                         <div id="table-body-wrapper" style="overflow-y: scroll;">
                             <table id="inventoryTable" class="table table-list-search table-hover table-fixed">
-<!--                                <thead>-->
-<!--                                <tr>-->
-<!--                                    <th>Item Number</th>-->
-<!--                                    <th>Model</th>-->
-<!--                                    <th>Description</th>-->
-<!--                                    <th>Manufacture</th>-->
-<!--                                    <th>Quantity</th>-->
-<!--                                    <th><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>-->
-<!--                                </tr>-->
-<!--                                </thead>-->
+                                <!--                                <thead>-->
+                                <!--                                <tr>-->
+                                <!--                                    <th>Item Number</th>-->
+                                <!--                                    <th>Model</th>-->
+                                <!--                                    <th>Description</th>-->
+                                <!--                                    <th>Manufacture</th>-->
+                                <!--                                    <th>Quantity</th>-->
+                                <!--                                    <th><span class='glyphicon glyphicon-edit'>&nbsp;</span></th>-->
+                                <!--                                </tr>-->
+                                <!--                                </thead>-->
                                 <tbody id="inventory-data">
 
                                 <?php
