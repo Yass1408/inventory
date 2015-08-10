@@ -6,5 +6,7 @@
 !/htdocs/xampp
 /htdocs/xampp/*
 !/htdocs/xampp/inventory
+/htdocs/xampp/inventory/vendor/*
+/htdocs/xampp/inventory/composer.phar
 .idea
 .metadata

@@ -14,19 +14,20 @@
     <title>InventoryIt</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="vendor/components/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+
 
     <!-- Sidebar CSS -->
     <link href="_css/simple-sidebar.css" rel="stylesheet">
 
     <!-- Inventory CSS -->
     <link href="_css/inventory.css" rel="stylesheet">
-
-    <!-- jQuery -->
-    <script src="_js/jquery-1.11.3.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Inventory Search -->
     <script src="_js/inventorySearch.js"></script>
