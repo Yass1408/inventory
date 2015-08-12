@@ -1,16 +1,13 @@
 ﻿<?php
+session_start();
 require "refreshInventory.php";
 
 $upc = $_GET['upc'];
 $store_id = 1;
 
-$serverName = "localhost";
-$username = "root";
-$password = "";
-$dbName = "eos";
 
 // Create connection
-$conn = new mysqli($serverName, $username, $password, $dbName);
+$conn = new mysqli("localhost", $_SESSION["name"], $_SESSION["pass"], $_SESSION["database"]);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -22,7 +19,7 @@ $conn->query("SET character_set_results=utf8");
 $stmt = $conn->prepare("INSERT INTO INVENTORY (upc, user_id, store_id, scaned_qty) VALUES ((SELECT upc FROM ITEM WHERE upc = ?), ?, ?, 1) ON DUPLICATE KEY UPDATE scaned_qty = scaned_qty + 1");
 
 /* Binds variables to prepared statement */
-$stmt->bind_param('ssi', $upc, $username, $store_id);
+$stmt->bind_param('ssi', $upc, $_SESSION["name"], $store_id);
 
 /* execute query */
 if (!$stmt->execute()) {
@@ -37,6 +34,6 @@ if (!$stmt->execute()) {
 $stmt->close();
 
 
-refreshInventory($conn, $username);
+refreshInventory($conn, $_SESSION["name"]);
 
 $conn->close();

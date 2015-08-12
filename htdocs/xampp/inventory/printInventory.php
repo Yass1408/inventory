@@ -1,7 +1,8 @@
 <?php
+session_start();
 header("Content-Type: application/vnd.ms-excel");
 //header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-header("Content-Disposition: attachment; filename='filename.htm'");
+header("Content-Disposition: attachment; filename='filename.xls'");
 header("Cache-Control: max-age=0");
 ?>
 
@@ -9,9 +10,12 @@ header("Cache-Control: max-age=0");
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+<!--    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">-->
 <!--    <script src="js/jquery-1.11.3.js"></script>-->
 <!--    <script src="bootstrap/js/bootstrap.js"></script>-->
+    <style>
+        table thead th {text-align:left;}
+    </style>
 </head>
 <body>
 <div class="col-md-8">

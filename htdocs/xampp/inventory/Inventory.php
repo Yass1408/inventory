@@ -77,7 +77,7 @@ session_start();
                 <a href="">CONTACT</a>
             </li>
             <li>
-                <a href="logout.php">LOGOUT</a>
+                <a href="logout.php" style="padding-top:20px">LOGOUT</a>
             </li>
         </ul>
     </div>

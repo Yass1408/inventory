@@ -11,13 +11,9 @@ class user
 
 }
 
-$serverName = "localhost";
-$username = "root";
-$password = "";
-$dbName = "eos";
 
 // Create connection
-$conn = new mysqli($serverName, $username, $password, $dbName);
+$conn = new mysqli("localhost", $_SESSION["name"], $_SESSION["pass"], $_SESSION["database"]);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

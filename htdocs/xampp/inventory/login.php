@@ -11,14 +11,9 @@ elseif (isset($_SESSION["errorMessage"]) && $_SESSION["errorType"] == "invalidQu
     echo '<script>window.onload = function(){alert("' . $_SESSION["errorMessage"] . '");};</script>';
 }
 //user login error
-//elseif (isset($_SESSION["errorMessage"]) && $_SESSION["errorType"] == "invalidLogin") {
-//    echo '<script>window.onload = function(){
-//			document.getElementById("name").style.border = "1px solid red";
-//			document.getElementById("pass").style.border = "1px solid red";
-//			document.getElementById("error").innerHTML="' . $_SESSION["errorMessage"] . '";
-//			document.getElementById("error").style.display = "block";
-//		};</script>';
-//}
+elseif (isset($_SESSION["errorMessage"]) && $_SESSION["errorType"] == "invalidLogin") {
+    echo '<script>alert("invalid username password combination!");</script>'; // TODO better login validation
+}
 unset($_SESSION["errorMessage"]);
 unset($_SESSION["errorType"]);
 ?>
@@ -64,6 +59,7 @@ unset($_SESSION["errorType"]);
 <!--                <input type="checkbox" value="remember-me"> Remember me-->
 <!--            </label>-->
 <!--        </div>-->
+        <label id="labelError"></label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 

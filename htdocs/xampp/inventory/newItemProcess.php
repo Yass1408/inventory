@@ -1,21 +1,17 @@
 <?php
-
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $upc = $_GET['upc']; //TODO trouver un moyen plus elegant de chercher le UPC
+    $upc = $_GET['upc']; //TODO Create a class item and insert item
 
     $itemNo = test_input($_POST["txtFldItemNo"]);
     $model = test_input($_POST["txtFldModel"]);
     $manufacture = test_input($_POST["selectManufacture"]);
     $description = test_input($_POST["txtFldDescription"]);
 
-    $serverName = "localhost";
-    $username = "root";
-    $password = "";
-    $dbName = "eos";
 
     // Create connection
-    $conn = new mysqli($serverName, $username, $password, $dbName);
+    $conn = new mysqli("localhost", $_SESSION["name"], $_SESSION["pass"], $_SESSION["database"]);
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -38,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // ENDIF
 }
 
+// TODO this function already exists. create a utils class!
 function test_input($data)
 {
     $data = trim($data);
@@ -50,4 +47,3 @@ function test_input($data)
 }
 
 $conn->close();
-?>
