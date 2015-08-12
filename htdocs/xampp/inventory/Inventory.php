@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+//include_once 'vendor/autoload.php';
+?>
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
@@ -72,6 +76,9 @@
             <li>
                 <a href="">CONTACT</a>
             </li>
+            <li>
+                <a href="logout.php">LOGOUT</a>
+            </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -120,11 +127,11 @@
                                                placeholder="Scan UPC here"
                                                required style="width: 300px">
                                     </div>
-                                    <span>
-                                        <label id="lbl-itemAdded-title" class="text-lastScan"
-                                               style="padding-left: 20px; display: none">Last Scan : </label>
-                                        <label id="lbl-itemAdded" class="text-lastScan"></label>
-                                    </span>
+                                            <span>
+                                                <label id="lbl-itemAdded-title" class="text-lastScan"
+                                                       style="padding-left: 20px; display: none">Last Scan : </label>
+                                                <label id="lbl-itemAdded" class="text-lastScan"></label>
+                                            </span>
                                     <!--                                    <button type="submit" class="btn btn-default">Submit</button>-->
                                 </div>
                                 <div class="navbar-form navbar-right">
@@ -179,25 +186,17 @@
                                 <?php
                                 require "refreshInventory.php";
 
-                                $serverName = "localhost";
-                                $username = "root";
-                                $password = "";
-                                $dbName = "eos";
 
                                 // Create connection
-                                $conn = new mysqli($serverName, $username, $password, $dbName);
+                                $conn = new mysqli("localhost", $_SESSION["name"], $_SESSION["pass"], $_SESSION["database"]);
                                 // Check connection
                                 if ($conn->connect_error) {
                                     die("Connection failed: " . $conn->connect_error);
                                 }
                                 // Convert the query result into utf8
                                 $conn->query("SET character_set_results=utf8");
-                                /*
-                                mb_language('uni');
-                                mb_internal_encoding('UTF-8');
-                                $conn->query("set names 'utf8'");
-                                */
-                                refreshInventory($conn, $username); //TODO give a unique ID with AJAX
+
+                                refreshInventory($conn, $_SESSION["name"]);
                                 $conn->close();
                                 ?>
                                 </tbody>
@@ -210,17 +209,11 @@
             </div>
         </div>
     </div>
-    <!-- /#page-content-wrapper -->
+    <!-- /#page-content-wrapper->
 
 </div>
 <!-- /#wrapper -->
 
-
-<!-- Menu Toggle Script -->
-<script>
-
-
-</script>
 
 </body>
 

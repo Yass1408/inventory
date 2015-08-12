@@ -1,6 +1,8 @@
 {
     "require": {
         "components/jquery": "1.11.*",
-        "twbs/bootstrap": "3.3.*"
+        "twbs/bootstrap": "3.3.*",
+        "kriswallsmith/assetic": "1.2.*@dev",
+        "lmammino/jsmin4assetic": "1.0.*@dev"
     }
 }
