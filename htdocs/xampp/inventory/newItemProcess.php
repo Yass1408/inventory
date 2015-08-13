@@ -17,13 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt = "INSERT INTO item (upc, item_no, model, manufacture, description) VALUE ('" . $upc . "','" . $itemNo . "','" . $model . "','" . $manufacture. "','" . $description . "')";
+    $stmt = "INSERT INTO item (upc, item_no, model, manufacture, description, added_by) VALUE ('" . $upc . "','" . $itemNo . "','" . $model . "','" . $manufacture. "','" . $description . "','" . $_SESSION['name'] . "')";
 
     if (!$conn->query($stmt)) {
         die("Error: " . $stmt . "<br>" . $conn->error);
     }
 
-    $stmt = "INSERT INTO inventory (upc, user_id, store_id, scaned_qty) VALUE ('". $upc ."', '".$username."', 1, 1)"; // TODO don't hard code store_id a
+    $stmt = "INSERT INTO inventory (upc, user_id, store_id, scaned_qty) VALUE ('". $upc ."', '".$_SESSION["name"]."', 1, 1)"; // TODO don't hard code store_id a
 
     if (!$conn->query($stmt)) {
         die("Error: " . $stmt . "<br>" . $conn->error);

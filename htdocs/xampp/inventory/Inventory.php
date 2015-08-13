@@ -1,5 +1,6 @@
 ﻿<?php
 session_start();
+if (!isset($_SESSION["hash"])){ header('location: login.php');}
 //include_once 'vendor/autoload.php';
 ?>
 <!DOCTYPE html>
@@ -59,7 +60,7 @@ session_start();
                     INVENTORY</a>
                 <ul id="export-options" class="collapse">
                     <li>
-                        <a href="printInventory.php">EXCEL</a>
+                        <a href="exportExcel.php">EXCEL</a>
                     </li>
                     <li>
                         <a href="">PDF</a>

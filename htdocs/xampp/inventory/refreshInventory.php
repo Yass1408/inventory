@@ -3,20 +3,17 @@
 function refreshInventory($conn, $username)
 {
     $result = $conn->query("
-    SELECT
-        ITEM.upc,
-        item_no,
-        model,
-        description,
-        manufacture,
-        scaned_qty
-    FROM
-        ITEM,
-        INVENTORY
-    WHERE
-        ITEM.upc = INVENTORY.upc
-        and user_id ='". $username ."'
-    ORDER BY added_time");
+SELECT
+    ITEM.upc,
+    item_no,
+    model,
+    description,
+    manufacture,
+    scaned_qty
+FROM
+    ITEM,(SELECT * FROM inventory WHERE user_id='". $username ."') user_inventory
+WHERE item.upc=user_inventory.upc and (item.added_by=user_inventory.user_id or item.added_by='admin')
+ORDER BY added_time");
 
     while ($row = $result->fetch_assoc()) {
         echo "<tr id='".$row['upc']."'>";

@@ -5,7 +5,7 @@ class user
 {
     public function __construct($user_id){
 
-        $qry_str = mysql_query("SELECT * FROM users WHERE Id=$userId");
+        $qry_str = mysql_query("SELECT * FROM users WHERE Id=$user_Id");
 
 }
 

@@ -26,9 +26,8 @@ unset($_SESSION["errorType"]);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <meta name="description" content="InventorIt Login Page">
+    <meta name="author" content="Yassine">
 
     <title>Signin Template for Bootstrap</title>
 
@@ -37,6 +36,9 @@ unset($_SESSION["errorType"]);
 
     <!-- Custom styles for this template -->
     <link href="_css/signin.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="vendor/components/jquery/jquery.min.js"></script>
 
 </head>
 
